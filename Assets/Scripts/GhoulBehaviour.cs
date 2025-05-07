@@ -93,23 +93,6 @@ public class EnemyAttack : MonoBehaviour
 
     }
 
-    void OnTriggerEnter2D(Collider2D other)
-    {
-        if (other.CompareTag("Player"))
-        {
-            isPlayerInZone = true;
-            animator.SetTrigger("Wake");
-        }
-    }
-
-    void OnTriggerExit2D(Collider2D other)
-    {
-        if (other.CompareTag("Player"))
-        {
-            isPlayerInZone = false;
-            animator.SetTrigger("Sleep");
-        }
-    }
 
     void OnDrawGizmosSelected()
     {
@@ -136,6 +119,11 @@ public class EnemyAttack : MonoBehaviour
         {
             audioSource.PlayOneShot(attackSound);
         }
+    }
+    public void SetPlayerInZone(bool inZone)
+    {
+        isPlayerInZone = inZone;
+        animator.SetTrigger(inZone ? "Wake" : "Sleep");
     }
 
 }
