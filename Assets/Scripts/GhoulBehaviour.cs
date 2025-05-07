@@ -81,13 +81,15 @@ public class EnemyAttack : MonoBehaviour
         // Verifica se já passou o cooldown para garantir ainda mais segurança
         if (Time.time < lastAttackTime) return;
 
+        PlayAttackSound(); // Chama o som do ataque
         Collider2D hitPlayer = Physics2D.OverlapCircle(attackPoint.position, attackRange, playerLayer);
         if (hitPlayer != null)
         {
             hitPlayer.GetComponent<PlayerMovement>()?.TakeDamage(attackDamage);
         }
         isAttacking = false;   
-        lastAttackTime = Time.time;     
+        lastAttackTime = Time.time;    
+
 
     }
 
@@ -124,6 +126,16 @@ public class EnemyAttack : MonoBehaviour
     public void Sleep()
     {
         isAwaken = false;
+    }
+    public AudioSource audioSource;
+    public AudioClip attackSound;
+
+    public void PlayAttackSound()
+    {
+        if (audioSource != null && attackSound != null)
+        {
+            audioSource.PlayOneShot(attackSound);
+        }
     }
 
 }
