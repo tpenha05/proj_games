@@ -30,7 +30,7 @@ public class EnemyShooter : MonoBehaviour
             && player.position.y <= firePoint.position.y)
         {
             anim.PlayAttack();
-            Shoot();
+            // Shoot();
             fireCooldown = fireRate;
         }
 

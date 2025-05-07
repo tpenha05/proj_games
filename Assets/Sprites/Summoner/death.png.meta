@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 14fc7eb5037e2dd4288603bf30aaccfc
+guid: e50002aef49f651459ab81b2077bc53d
 TextureImporter:
   internalIDToNameTable:
   - first:
@@ -191,8 +191,8 @@ TextureImporter:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 62
-        height: 33
+        width: 46
+        height: 44
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -211,10 +211,10 @@ TextureImporter:
       name: death_1
       rect:
         serializedVersion: 2
-        x: 62
+        x: 46
         y: 0
-        width: 62
-        height: 33
+        width: 46
+        height: 44
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -233,10 +233,10 @@ TextureImporter:
       name: death_2
       rect:
         serializedVersion: 2
-        x: 124
+        x: 92
         y: 0
-        width: 62
-        height: 33
+        width: 46
+        height: 44
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -255,10 +255,10 @@ TextureImporter:
       name: death_3
       rect:
         serializedVersion: 2
-        x: 186
+        x: 138
         y: 0
-        width: 62
-        height: 33
+        width: 46
+        height: 44
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -277,10 +277,10 @@ TextureImporter:
       name: death_4
       rect:
         serializedVersion: 2
-        x: 248
+        x: 184
         y: 0
-        width: 62
-        height: 33
+        width: 46
+        height: 44
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -299,10 +299,10 @@ TextureImporter:
       name: death_5
       rect:
         serializedVersion: 2
-        x: 310
+        x: 230
         y: 0
-        width: 62
-        height: 33
+        width: 46
+        height: 44
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -321,10 +321,10 @@ TextureImporter:
       name: death_6
       rect:
         serializedVersion: 2
-        x: 372
+        x: 276
         y: 0
-        width: 62
-        height: 33
+        width: 46
+        height: 44
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -343,10 +343,10 @@ TextureImporter:
       name: death_7
       rect:
         serializedVersion: 2
-        x: 434
+        x: 322
         y: 0
-        width: 62
-        height: 33
+        width: 46
+        height: 44
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -365,7 +365,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: c075d80781f770f4d9780121728663bc
+    spriteID: c9bee7e3b86131342b47666099f0155b
     internalID: 0
     vertices: []
     indices: 
