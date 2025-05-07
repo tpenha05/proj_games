@@ -144,7 +144,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 4
+  m_Constraints: 6
 --- !u!114 &3238883631086770534
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -175,9 +175,9 @@ MonoBehaviour:
   projectilePrefab: {fileID: 7655235655008580218, guid: eb36b06b353064e47a8b50a2183c42e9, type: 3}
   attackClip: {fileID: 8300000, guid: c2c60fc7e01d2514e9d727bcd5dc450f, type: 3}
   firePoint: {fileID: 3450386957808913859}
-  fireRate: 1.5
-  projectileSpeed: 10
-  attackRange: 8
+  fireRate: 2.5
+  projectileSpeed: 6
+  attackRange: 10
   player: {fileID: 0}
 --- !u!114 &5602556488419212678
 MonoBehaviour:
