@@ -61,7 +61,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -99,7 +99,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -153,10 +153,10 @@ TextureImporter:
       name: Walk_0
       rect:
         serializedVersion: 2
-        x: 25
+        x: 0
         y: 0
-        width: 14
-        height: 24
+        width: 62
+        height: 33
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -175,10 +175,10 @@ TextureImporter:
       name: Walk_1
       rect:
         serializedVersion: 2
-        x: 86
+        x: 62
         y: 0
-        width: 15
-        height: 23
+        width: 62
+        height: 33
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -197,10 +197,10 @@ TextureImporter:
       name: Walk_2
       rect:
         serializedVersion: 2
-        x: 149
+        x: 124
         y: 0
-        width: 14
-        height: 22
+        width: 62
+        height: 33
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -219,10 +219,10 @@ TextureImporter:
       name: Walk_3
       rect:
         serializedVersion: 2
-        x: 212
+        x: 186
         y: 0
-        width: 12
-        height: 23
+        width: 62
+        height: 33
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -241,10 +241,10 @@ TextureImporter:
       name: Walk_4
       rect:
         serializedVersion: 2
-        x: 274
+        x: 248
         y: 0
-        width: 12
-        height: 25
+        width: 62
+        height: 33
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -263,10 +263,10 @@ TextureImporter:
       name: Walk_5
       rect:
         serializedVersion: 2
-        x: 336
+        x: 310
         y: 0
-        width: 13
-        height: 24
+        width: 62
+        height: 33
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -285,10 +285,10 @@ TextureImporter:
       name: Walk_6
       rect:
         serializedVersion: 2
-        x: 398
+        x: 372
         y: 0
-        width: 13
-        height: 22
+        width: 62
+        height: 33
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -307,10 +307,10 @@ TextureImporter:
       name: Walk_7
       rect:
         serializedVersion: 2
-        x: 460
+        x: 434
         y: 0
-        width: 12
-        height: 23
+        width: 62
+        height: 33
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -329,10 +329,10 @@ TextureImporter:
       name: Walk_8
       rect:
         serializedVersion: 2
-        x: 522
+        x: 496
         y: 0
-        width: 12
-        height: 25
+        width: 62
+        height: 33
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -351,7 +351,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: dc355328fe41bbf4abe4aa8550781373
     internalID: 0
     vertices: []
     indices: 
