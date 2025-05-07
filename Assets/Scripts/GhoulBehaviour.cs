@@ -85,7 +85,7 @@ public class EnemyAttack : MonoBehaviour
         Collider2D hitPlayer = Physics2D.OverlapCircle(attackPoint.position, attackRange, playerLayer);
         if (hitPlayer != null)
         {
-            hitPlayer.GetComponent<PlayerMovement>()?.TakeDamage(attackDamage);
+            hitPlayer.GetComponent<PlayerMovementKike>()?.TakeDamage(attackDamage);
         }
         isAttacking = false;   
         lastAttackTime = Time.time;    
