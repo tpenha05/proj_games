@@ -5,6 +5,7 @@ public class PlayerSwordMaster : MonoBehaviour
     private Rigidbody2D rb;
     private Animator anim;
     private SpriteRenderer sr;
+    private AudioSource audioSource;
 
     [SerializeField] private float walkSpeed = 3f;
     [SerializeField] private float runSpeed = 6f;
@@ -13,6 +14,8 @@ public class PlayerSwordMaster : MonoBehaviour
     [SerializeField] private Transform groundCheck;
     [SerializeField] private Vector2 groundCheckSize = new Vector2(0.4f, 0.1f);
     [SerializeField] private LayerMask groundLayer;
+
+    [SerializeField] private AudioClip footstepClip;
 
     private bool isGrounded;
     private bool isJumping;
@@ -26,6 +29,7 @@ public class PlayerSwordMaster : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
         sr = GetComponent<SpriteRenderer>();
+        audioSource = GetComponent<AudioSource>();
     }
 
     void Update()
@@ -52,9 +56,20 @@ public class PlayerSwordMaster : MonoBehaviour
             rb.linearVelocity = new Vector2((sr.flipX ? -1 : 1) * runSpeed * 1.5f, rb.linearVelocity.y);
         }
 
-        // Animações
-        bool isWalking = horizontalInput != 0 && !isRunning && !isRolling;
+        // Sons de passo
+        bool isWalking = horizontalInput != 0 && isGrounded && !isRunning && !isRolling;
+        if (isWalking && !audioSource.isPlaying)
+        {
+            audioSource.clip = footstepClip;
+            audioSource.pitch = Random.Range(0.95f, 1.05f); // opcional para variar o som
+            audioSource.Play();
+        }
+        else if (!isWalking && audioSource.isPlaying)
+        {
+            audioSource.Stop();
+        }
 
+        // Animações
         anim.SetFloat("xVelocity", Mathf.Abs(rb.linearVelocity.x));
         anim.SetFloat("yVelocity", rb.linearVelocity.y);
         anim.SetBool("isJumping", isJumping);
