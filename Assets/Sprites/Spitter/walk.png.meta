@@ -1,64 +1,28 @@
 fileFormatVersion: 2
-guid: ef5bc35ace2f3264d8e7872374141890
+guid: e3a0b8d5e02f5774699a486929060c29
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -9192638271177797499
-    second: death_0
+      213: -8296385383580801948
+    second: walk_0
   - first:
-      213: 8559509556701815258
-    second: death_1
+      213: 3218353051568008401
+    second: walk_1
   - first:
-      213: -5286180679089938723
-    second: death_2
+      213: 6971375644381031630
+    second: walk_2
   - first:
-      213: -1891855120789479077
-    second: death_3
+      213: -3714987382563562326
+    second: walk_3
   - first:
-      213: -5582970244224541034
-    second: death_4
+      213: -2044624726750869082
+    second: walk_4
   - first:
-      213: 830680230883465780
-    second: death_5
+      213: -1800561202758830752
+    second: walk_5
   - first:
-      213: 6596258498841548387
-    second: death_6
-  - first:
-      213: -4147321062969920389
-    second: death_7
-  - first:
-      213: 2602597460433512539
-    second: death_8
-  - first:
-      213: -2134515381725696932
-    second: death_9
-  - first:
-      213: -270028788923616002
-    second: death_10
-  - first:
-      213: -5121890589552714621
-    second: death_11
-  - first:
-      213: 627783550670650900
-    second: death_12
-  - first:
-      213: 2891620135027730149
-    second: death_13
-  - first:
-      213: 7975919600420608313
-    second: death_14
-  - first:
-      213: 6275631635777415744
-    second: death_15
-  - first:
-      213: -9015114149152096869
-    second: death_16
-  - first:
-      213: -133209616158212645
-    second: death_17
-  - first:
-      213: -7524816321260968566
-    second: death_18
+      213: -7072565547094396234
+    second: walk_6
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -150,11 +114,37 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: death_0
+      name: walk_0
       rect:
         serializedVersion: 2
         x: 0
@@ -169,14 +159,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 58059c172303d6080800000000000000
-      internalID: -9192638271177797499
+      spriteID: 4646ce323715ddc80800000000000000
+      internalID: -8296385383580801948
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: death_1
+      name: walk_1
       rect:
         serializedVersion: 2
         x: 57
@@ -191,14 +181,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: ad1e5c2779c79c670800000000000000
-      internalID: 8559509556701815258
+      spriteID: 1dc61808c03e9ac20800000000000000
+      internalID: 3218353051568008401
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: death_2
+      name: walk_2
       rect:
         serializedVersion: 2
         x: 114
@@ -213,14 +203,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: dde9f440ea6b3a6b0800000000000000
-      internalID: -5286180679089938723
+      spriteID: ecc242f663d4fb060800000000000000
+      internalID: 6971375644381031630
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: death_3
+      name: walk_3
       rect:
         serializedVersion: 2
         x: 171
@@ -235,14 +225,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: b51e6d68ac7ceb5e0800000000000000
-      internalID: -1891855120789479077
+      spriteID: aac9d3d88a6b17cc0800000000000000
+      internalID: -3714987382563562326
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: death_4
+      name: walk_4
       rect:
         serializedVersion: 2
         x: 228
@@ -257,14 +247,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 69e9b69842e4582b0800000000000000
-      internalID: -5582970244224541034
+      spriteID: 6a9c807d4a800a3e0800000000000000
+      internalID: -2044624726750869082
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: death_5
+      name: walk_5
       rect:
         serializedVersion: 2
         x: 285
@@ -279,14 +269,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 43a9fb3d44b278b00800000000000000
-      internalID: 830680230883465780
+      spriteID: 065b539302f1307e0800000000000000
+      internalID: -1800561202758830752
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: death_6
+      name: walk_6
       rect:
         serializedVersion: 2
         x: 342
@@ -301,30 +291,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 3661a1ef72e9a8b50800000000000000
-      internalID: 6596258498841548387
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: death_7
-      rect:
-        serializedVersion: 2
-        x: 399
-        y: 0
-        width: 57
-        height: 39
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: b74be287771c176c0800000000000000
-      internalID: -4147321062969920389
+      spriteID: 6b2b5c26b1339dd90800000000000000
+      internalID: -7072565547094396234
       vertices: []
       indices: 
       edges: []
@@ -333,7 +301,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 1c9f57281292e4a4d9d6d8661b8e5636
+    spriteID: 7e67ecf1849c35a428896bcd463b6f6d
     internalID: 0
     vertices: []
     indices: 
@@ -343,14 +311,13 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      death_0: -9192638271177797499
-      death_1: 8559509556701815258
-      death_2: -5286180679089938723
-      death_3: -1891855120789479077
-      death_4: -5582970244224541034
-      death_5: 830680230883465780
-      death_6: 6596258498841548387
-      death_7: -4147321062969920389
+      walk_0: -8296385383580801948
+      walk_1: 3218353051568008401
+      walk_2: 6971375644381031630
+      walk_3: -3714987382563562326
+      walk_4: -2044624726750869082
+      walk_5: -1800561202758830752
+      walk_6: -7072565547094396234
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

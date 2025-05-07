@@ -67,8 +67,6 @@ public class PlayerSwordMaster : MonoBehaviour
         // Verifica se está no chão usando uma caixa
         isGrounded = Physics2D.OverlapBox(groundCheck.position, groundCheckSize, 0f, groundLayer);
 
-        Debug.Log("isGrounded: " + isGrounded);
-
         if (isGrounded && rb.linearVelocity.y <= 0)
         {
             isJumping = false;
