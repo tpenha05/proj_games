@@ -24,7 +24,7 @@ public class Projectile : MonoBehaviour
         if (((1 << other.gameObject.layer) & groundLayer) != 0)
         {
             animator.SetTrigger("hasCollided");
-            Destroy(gameObject);
+            rb.linearVelocity = Vector2.zero;
             return;
         }
 
