@@ -1,4 +1,5 @@
 using UnityEngine;
+using System.Collections;   
 
 [RequireComponent(typeof(Rigidbody2D), typeof(BoxCollider2D), typeof(Animator))]
 public class PlayerMovement : MonoBehaviour
@@ -6,12 +7,16 @@ public class PlayerMovement : MonoBehaviour
     [Header("References")]
     public PlayerMovementStats MoveStats;
     public Transform groundCheck;
+    public Transform ledgeCheckLower;
+    public Transform ledgeCheckUpper;
+    public LayerMask wallLayer;
 
     Rigidbody2D rb;
     Animator anim;
 
     bool isGrounded;
     bool isFacingRight = true;
+    bool isHanging = false;
     Vector2 moveInput;
 
     float coyoteCounter;
@@ -33,14 +38,23 @@ public class PlayerMovement : MonoBehaviour
         rb.freezeRotation = true;
         rb.interpolation = RigidbodyInterpolation2D.Interpolate;
         defaultGravityScale = rb.gravityScale;
-
     }
 
     void Update()
     {
+        if (isHanging)
+        {
+            if (InputManager.JumpWasPressed)
+                StartCoroutine(ClimbLedge());
+            else if (InputManager.RunIsHeld)
+                DropFromLedge();
+            return;
+        }
+
         HandleTimers();
         ReadInput();
         CheckGround();
+        CheckForLedge();
         HandleJump();
         HandleRoll();
         HandleDash();
@@ -49,7 +63,7 @@ public class PlayerMovement : MonoBehaviour
 
     void FixedUpdate()
     {
-        if (!isRolling && !isDashing)
+        if (!isRolling && !isDashing && !isHanging)
             ApplyHorizontalMovement();
     }
 
@@ -66,9 +80,8 @@ public class PlayerMovement : MonoBehaviour
         if (dashTimer <= 0f && isDashing)
         {
             isDashing = false;
-            rb.gravityScale = defaultGravityScale; // volta a cair normalmente
+            rb.gravityScale = defaultGravityScale;
         }
-
     }
 
     void ReadInput()
@@ -81,7 +94,7 @@ public class PlayerMovement : MonoBehaviour
         if (InputManager.JumpWasReleased && rb.linearVelocity.y > 0f)
             rb.linearVelocity = new(rb.linearVelocity.x, rb.linearVelocity.y * MoveStats.JumpCutMultiplier);
 
-        if (InputManager.RollWasPressed) TryRoll(); 
+        if (InputManager.RollWasPressed) TryRoll();
         if (InputManager.DashWasPressed) TryDash();
     }
 
@@ -99,6 +112,57 @@ public class PlayerMovement : MonoBehaviour
             coyoteCounter = MoveStats.CoyoteTime;
     }
 
+    void CheckForLedge()
+    {
+        bool lowerHit = Physics2D.OverlapCircle(ledgeCheckLower.position, 0.1f, wallLayer);
+        bool upperHit = Physics2D.OverlapCircle(ledgeCheckUpper.position, 0.1f, wallLayer);
+
+        if (lowerHit && !upperHit && !isGrounded && rb.linearVelocity.y < 0f)
+        {
+            EnterLedgeHang();
+        }
+    }
+
+    void EnterLedgeHang()
+    {
+        isHanging = true;
+        rb.linearVelocity = Vector2.zero;
+        rb.gravityScale = 0f;
+        anim.SetTrigger("LedgeHold");
+
+        // Ajuste fino da posição do personagem (ajuste conforme necessário)
+        Vector3 hangOffset = new Vector3(isFacingRight ? -0.2f : 0.2f, -0.3f, 0f);
+        transform.position += hangOffset;
+
+    }
+
+    IEnumerator ClimbLedge()
+    {
+        anim.SetTrigger("LedgeClimb");
+        
+        // Espera pela animação (ou ajuste esse tempo para combinar)
+        yield return new WaitForSeconds(0.5f);
+
+        rb.gravityScale = defaultGravityScale;
+        isHanging = false;
+
+        // Offset ajustado para subir um pouco para frente e um pouco para cima
+        Vector3 climbOffset = new Vector3(
+            isFacingRight ? 1f : -1f, // 1 unidade para o lado da parede
+            1.5f,                     // 1.5 para cima
+            0f
+        );
+
+        transform.position += climbOffset;
+    }
+
+
+    void DropFromLedge()
+    {
+        isHanging = false;
+        rb.gravityScale = defaultGravityScale;
+    }
+
     void HandleJump()
     {
         if (jumpBufferCounter > 0f && coyoteCounter > 0f)
@@ -114,13 +178,9 @@ public class PlayerMovement : MonoBehaviour
 
     void ApplyHorizontalMovement()
     {
-        float maxSpeed = InputManager.RunIsHeld
-                       ? MoveStats.RunSpeed
-                       : MoveStats.WalkSpeed;
-
+        float maxSpeed = InputManager.RunIsHeld ? MoveStats.RunSpeed : MoveStats.WalkSpeed;
         float targetSpeed = moveInput.x * maxSpeed;
-        float accel = Mathf.Abs(targetSpeed) > 0.1f ? MoveStats.Acceleration
-                                                    : MoveStats.Deceleration;
+        float accel = Mathf.Abs(targetSpeed) > 0.1f ? MoveStats.Acceleration : MoveStats.Deceleration;
 
         float speed = Mathf.MoveTowards(rb.linearVelocity.x, targetSpeed, accel * Time.fixedDeltaTime);
         rb.linearVelocity = new(speed, Mathf.Max(rb.linearVelocity.y, -MoveStats.MaxFallSpeed));
@@ -169,7 +229,7 @@ public class PlayerMovement : MonoBehaviour
         {
             float dir = isFacingRight ? 1f : -1f;
 
-            rb.gravityScale = 0f; // Para a queda
+            rb.gravityScale = 0f;
             rb.linearVelocity = new Vector2(dir * MoveStats.DashSpeed, 0f);
 
             isDashing = true;
@@ -179,7 +239,6 @@ public class PlayerMovement : MonoBehaviour
             anim.SetTrigger("Dash");
         }
     }
-
 
     void HandleDash()
     {
@@ -202,7 +261,14 @@ public class PlayerMovement : MonoBehaviour
     void OnDrawGizmosSelected()
     {
         if (!groundCheck || MoveStats == null || !MoveStats.DebugShowGroundBox) return;
+
         Gizmos.color = isGrounded ? Color.green : Color.red;
         Gizmos.DrawWireCube(groundCheck.position, MoveStats.GroundCheckSize);
+
+        Gizmos.color = Color.yellow;
+        if (ledgeCheckLower != null)
+            Gizmos.DrawWireSphere(ledgeCheckLower.position, 0.1f);
+        if (ledgeCheckUpper != null)
+            Gizmos.DrawWireSphere(ledgeCheckUpper.position, 0.1f);
     }
 }

@@ -14,6 +14,7 @@ public class InputManager : MonoBehaviour
     public static bool RunIsHeld;
     public static bool RollWasPressed;
     public static bool DashWasPressed;
+    public static bool DropWasPressed;
 
     private InputAction _moveAction;
     private InputAction _jumpAction;
@@ -42,7 +43,7 @@ public class InputManager : MonoBehaviour
         JumpWasReleased = _jumpAction.WasReleasedThisFrame();
         RollWasPressed = _rollAction.WasPressedThisFrame();
         DashWasPressed = _dashAction.WasPressedThisFrame();
-
+        DropWasPressed = _runAction.WasPressedThisFrame();
 
         RunIsHeld = _runAction.IsPressed();
     }
