@@ -139,23 +139,27 @@ public class PlayerMovement : MonoBehaviour
     IEnumerator ClimbLedge()
     {
         anim.SetTrigger("LedgeClimb");
-        
-        // Espera pela animação (ou ajuste esse tempo para combinar)
-        yield return new WaitForSeconds(0.5f);
 
-        rb.gravityScale = defaultGravityScale;
+        Vector3 startPos = transform.position;
+        Vector3 targetPos = startPos + new Vector3(isFacingRight ? 1f : -1f, 1.5f, 0f);
+
+        float duration = 0.5f;
+        float elapsed = 0f;
+
         isHanging = false;
+        rb.gravityScale = 0f;
+        rb.linearVelocity = Vector2.zero;
 
-        // Offset ajustado para subir um pouco para frente e um pouco para cima
-        Vector3 climbOffset = new Vector3(
-            isFacingRight ? 1f : -1f, // 1 unidade para o lado da parede
-            1.5f,                     // 1.5 para cima
-            0f
-        );
+        while (elapsed < duration)
+        {
+            transform.position = Vector3.Lerp(startPos, targetPos, elapsed / duration);
+            elapsed += Time.deltaTime;
+            yield return null;
+        }
 
-        transform.position += climbOffset;
+        transform.position = targetPos;
+        rb.gravityScale = defaultGravityScale;
     }
-
 
     void DropFromLedge()
     {
