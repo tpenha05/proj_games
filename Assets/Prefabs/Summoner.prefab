@@ -336,7 +336,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ghoulPrefab: {fileID: 7180761207616070243, guid: 20714e1c1f0c54547828fdb5733a03d8, type: 3}
   spawnRadius: {fileID: 5887998556827184234}
-  player: {fileID: 0}
+  player: {fileID: 2037788616747712533, guid: 86f7243992ff58d4f855c563cc3950b6, type: 3}
   maxGhouls: 5
 --- !u!1 &7922082750043402620
 GameObject:

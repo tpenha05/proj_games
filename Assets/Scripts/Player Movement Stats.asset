@@ -14,12 +14,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   WalkSpeed: 6
   RunSpeed: 10
-  Acceleration: 40
-  Deceleration: 50
-  JumpForce: 14
+  Acceleration: 100
+  Deceleration: 100
+  JumpForce: 17
   JumpCutMultiplier: 0.5
   MaxFallSpeed: 15
-  CoyoteTime: 0.1
+  CoyoteTime: 0.17
   JumpBufferTime: 0.125
   GroundCheckSize: {x: 0.4, y: 0.1}
   GroundLayer:

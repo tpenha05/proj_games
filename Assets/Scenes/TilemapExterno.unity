@@ -1176,11 +1176,6 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
---- !u!4 &1493349419 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 7673204063500337551, guid: 86f7243992ff58d4f855c563cc3950b6, type: 3}
-  m_PrefabInstance: {fileID: 2012149022}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1635362199 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2037788616747712533, guid: 86f7243992ff58d4f855c563cc3950b6, type: 3}
@@ -55185,14 +55180,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 129493960535894762, guid: 86f7243992ff58d4f855c563cc3950b6, type: 3}
-      propertyPath: m_Mass
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 129493960535894762, guid: 86f7243992ff58d4f855c563cc3950b6, type: 3}
-      propertyPath: m_GravityScale
-      value: 4
-      objectReference: {fileID: 0}
     - target: {fileID: 2037788616747712533, guid: 86f7243992ff58d4f855c563cc3950b6, type: 3}
       propertyPath: m_LocalPosition.x
       value: -5.149
@@ -55233,29 +55220,9 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4146855929083626949, guid: 86f7243992ff58d4f855c563cc3950b6, type: 3}
-      propertyPath: GroundCheck
-      value: 
-      objectReference: {fileID: 1493349419}
-    - target: {fileID: 4146855929083626949, guid: 86f7243992ff58d4f855c563cc3950b6, type: 3}
-      propertyPath: groundCheck
-      value: 
-      objectReference: {fileID: 1493349419}
-    - target: {fileID: 4146855929083626949, guid: 86f7243992ff58d4f855c563cc3950b6, type: 3}
-      propertyPath: GroundLayer.m_Bits
-      value: 8
-      objectReference: {fileID: 0}
     - target: {fileID: 5215786211372471057, guid: 86f7243992ff58d4f855c563cc3950b6, type: 3}
       propertyPath: m_Name
       value: PlayerSwordMaster
-      objectReference: {fileID: 0}
-    - target: {fileID: 8799369778172987938, guid: 86f7243992ff58d4f855c563cc3950b6, type: 3}
-      propertyPath: m_Size.y
-      value: 0.2403906
-      objectReference: {fileID: 0}
-    - target: {fileID: 8799369778172987938, guid: 86f7243992ff58d4f855c563cc3950b6, type: 3}
-      propertyPath: m_Offset.y
-      value: 0.031868964
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

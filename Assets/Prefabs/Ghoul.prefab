@@ -394,7 +394,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7122d28b5fb256e40bd8be0c2c7bb27b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 0}
+  player: {fileID: 2037788616747712533, guid: 86f7243992ff58d4f855c563cc3950b6, type: 3}
   attackPoint: {fileID: 7604370197627022576}
   playerLayer:
     serializedVersion: 2

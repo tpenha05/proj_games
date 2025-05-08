@@ -5,28 +5,35 @@ public class PlayerMovement : MonoBehaviour
 {
     [Header("References")]
     public PlayerMovementStats MoveStats;
-    public Transform groundCheck; 
+    public Transform groundCheck;
 
     Rigidbody2D rb;
-    Animator    anim;
+    Animator anim;
 
-    /* Estado */
-    bool  isGrounded;
-    bool  isFacingRight = true;
+    bool isGrounded;
+    bool isFacingRight = true;
     Vector2 moveInput;
 
-    /* Timers */
     float coyoteCounter;
     float jumpBufferCounter;
+    float defaultGravityScale;
 
-    /* ─────────────────────────────────────────────────────────── */
+    bool isRolling = false;
+    bool isDashing = false;
+    float rollTimer = 0f;
+    float dashTimer = 0f;
+    float rollCooldown = 0f;
+    float dashCooldown = 0f;
+
     void Awake()
     {
-        rb   = GetComponent<Rigidbody2D>();
+        rb = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
 
         rb.freezeRotation = true;
-        rb.interpolation  = RigidbodyInterpolation2D.Interpolate;
+        rb.interpolation = RigidbodyInterpolation2D.Interpolate;
+        defaultGravityScale = rb.gravityScale;
+
     }
 
     void Update()
@@ -35,31 +42,49 @@ public class PlayerMovement : MonoBehaviour
         ReadInput();
         CheckGround();
         HandleJump();
+        HandleRoll();
+        HandleDash();
         UpdateAnimator();
     }
 
-    void FixedUpdate() => ApplyHorizontalMovement();
+    void FixedUpdate()
+    {
+        if (!isRolling && !isDashing)
+            ApplyHorizontalMovement();
+    }
 
-    /* Timers & Input */
     void HandleTimers()
     {
         coyoteCounter     -= Time.deltaTime;
         jumpBufferCounter -= Time.deltaTime;
+        rollTimer         -= Time.deltaTime;
+        dashTimer         -= Time.deltaTime;
+        rollCooldown      -= Time.deltaTime;
+        dashCooldown      -= Time.deltaTime;
+
+        if (rollTimer <= 0f) isRolling = false;
+        if (dashTimer <= 0f && isDashing)
+        {
+            isDashing = false;
+            rb.gravityScale = defaultGravityScale; // volta a cair normalmente
+        }
+
     }
 
     void ReadInput()
     {
-        moveInput.x = Input.GetAxisRaw("Horizontal");
+        moveInput = InputManager.Movement;
 
-        if (Input.GetButtonDown("Jump"))
+        if (InputManager.JumpWasPressed)
             jumpBufferCounter = MoveStats.JumpBufferTime;
 
-        if (Input.GetButtonUp("Jump") && rb.linearVelocity.y > 0f)
-            rb.linearVelocity = new(rb.linearVelocity.x,
-                              rb.linearVelocity.y * MoveStats.JumpCutMultiplier);
+        if (InputManager.JumpWasReleased && rb.linearVelocity.y > 0f)
+            rb.linearVelocity = new(rb.linearVelocity.x, rb.linearVelocity.y * MoveStats.JumpCutMultiplier);
+
+        if (InputManager.RollWasPressed) TryRoll(); 
+        if (InputManager.DashWasPressed) TryDash();
     }
 
-    /* Ground Check */
     void CheckGround()
     {
         bool overlap = Physics2D.OverlapBox(
@@ -68,14 +93,12 @@ public class PlayerMovement : MonoBehaviour
             0f,
             MoveStats.GroundLayer);
 
-        /* Só considera grounded se NÃO estiver subindo */
         isGrounded = overlap && rb.linearVelocity.y <= 0.01f;
 
-        if (isGrounded) coyoteCounter = MoveStats.CoyoteTime;
+        if (isGrounded)
+            coyoteCounter = MoveStats.CoyoteTime;
     }
 
-
-    /* Jump */
     void HandleJump()
     {
         if (jumpBufferCounter > 0f && coyoteCounter > 0f)
@@ -89,10 +112,9 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
-    /* Horizontal Movement */
     void ApplyHorizontalMovement()
     {
-        float maxSpeed = Input.GetKey(KeyCode.LeftShift)
+        float maxSpeed = InputManager.RunIsHeld
                        ? MoveStats.RunSpeed
                        : MoveStats.WalkSpeed;
 
@@ -100,11 +122,8 @@ public class PlayerMovement : MonoBehaviour
         float accel = Mathf.Abs(targetSpeed) > 0.1f ? MoveStats.Acceleration
                                                     : MoveStats.Deceleration;
 
-        float speed = Mathf.MoveTowards(rb.linearVelocity.x, targetSpeed,
-                                        accel * Time.fixedDeltaTime);
-
-        rb.linearVelocity = new(speed,
-                          Mathf.Max(rb.linearVelocity.y, -MoveStats.MaxFallSpeed));
+        float speed = Mathf.MoveTowards(rb.linearVelocity.x, targetSpeed, accel * Time.fixedDeltaTime);
+        rb.linearVelocity = new(speed, Mathf.Max(rb.linearVelocity.y, -MoveStats.MaxFallSpeed));
 
         if (targetSpeed != 0f) HandleFlip(targetSpeed);
     }
@@ -121,18 +140,65 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
-    /* Animator */
-    void UpdateAnimator()
+    void TryRoll()
     {
-        anim.SetBool ("isGrounded", isGrounded);
-        anim.SetBool ("isFalling",  rb.linearVelocity.y < -0.1f && !isGrounded);
-        anim.SetBool ("isRunning",  Mathf.Abs(rb.linearVelocity.x) > MoveStats.WalkSpeed + 0.1f);
-        anim.SetBool ("isWalking",  Mathf.Abs(rb.linearVelocity.x) > 0.1f &&
-                                    Mathf.Abs(rb.linearVelocity.x) <= MoveStats.WalkSpeed + 0.1f);
-        anim.SetFloat("VerticalVelocity", rb.linearVelocity.y);
+        if (!isRolling && isGrounded && rollCooldown <= 0f)
+        {
+            isRolling = true;
+            rollTimer = MoveStats.RollDuration;
+            rollCooldown = MoveStats.RollCooldown;
+            anim.SetTrigger("Roll");
+
+            float dir = isFacingRight ? 1f : -1f;
+            rb.linearVelocity = new Vector2(dir * MoveStats.RollSpeed, 0f);
+        }
     }
 
-    /* Gizmos (debug) */
+    void HandleRoll()
+    {
+        if (isRolling)
+        {
+            float dir = isFacingRight ? 1f : -1f;
+            rb.linearVelocity = new Vector2(dir * MoveStats.RollSpeed, rb.linearVelocity.y);
+        }
+    }
+
+    void TryDash()
+    {
+        if (!isDashing && dashCooldown <= 0f)
+        {
+            float dir = isFacingRight ? 1f : -1f;
+
+            rb.gravityScale = 0f; // Para a queda
+            rb.linearVelocity = new Vector2(dir * MoveStats.DashSpeed, 0f);
+
+            isDashing = true;
+            dashTimer = MoveStats.DashDuration;
+            dashCooldown = MoveStats.DashCooldown;
+
+            anim.SetTrigger("Dash");
+        }
+    }
+
+
+    void HandleDash()
+    {
+        if (isDashing)
+        {
+            float dir = isFacingRight ? 1f : -1f;
+            rb.linearVelocity = new Vector2(dir * MoveStats.DashSpeed, rb.linearVelocity.y);
+        }
+    }
+
+    void UpdateAnimator()
+    {
+        anim.SetBool("isGrounded", isGrounded);
+        anim.SetBool("isFalling", rb.linearVelocity.y < -0.1f && !isGrounded);
+        anim.SetBool("isRunning", Mathf.Abs(rb.linearVelocity.x) > MoveStats.WalkSpeed + 0.1f);
+        anim.SetBool("isWalking", Mathf.Abs(rb.linearVelocity.x) > 0.1f &&
+                                  Mathf.Abs(rb.linearVelocity.x) <= MoveStats.WalkSpeed + 0.1f);
+    }
+
     void OnDrawGizmosSelected()
     {
         if (!groundCheck || MoveStats == null || !MoveStats.DebugShowGroundBox) return;

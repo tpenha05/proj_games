@@ -22,6 +22,16 @@ public class PlayerMovementStats : ScriptableObject
     public Vector2   GroundCheckSize = new(0.4f, 0.1f);
     public LayerMask GroundLayer;
 
+    [Header("Roll")]
+    public float RollSpeed = 15f;
+    public float RollDuration = 0.4f;
+    public float RollCooldown = 1f;
+
+    [Header("Dash")]
+    public float DashSpeed = 20f;
+    public float DashDuration = 0.3f;
+    public float DashCooldown = 1.2f;
+
     [Header("Debug")]
     public bool DebugShowGroundBox;
 }
