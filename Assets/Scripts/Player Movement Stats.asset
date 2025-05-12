@@ -25,4 +25,10 @@ MonoBehaviour:
   GroundLayer:
     serializedVersion: 2
     m_Bits: 8
+  RollSpeed: 12.5
+  RollDuration: 0.4
+  RollCooldown: 1
+  DashSpeed: 17.5
+  DashDuration: 0.3
+  DashCooldown: 1.2
   DebugShowGroundBox: 0
