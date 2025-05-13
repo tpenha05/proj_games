@@ -25,7 +25,7 @@ public class Projectile : MonoBehaviour
         {
             animator.SetTrigger("hasCollided");
             rb.linearVelocity = Vector2.zero;
-            return;
+                return;
         }
 
         if (other.CompareTag("Player"))
