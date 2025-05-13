@@ -3,6 +3,9 @@ using UnityEngine;
 
 public class SummonerBehaviour : MonoBehaviour
 {
+    public AudioClip summonSound;
+    private AudioSource audioSource;
+
     public GameObject ghoulPrefab;
     public Transform spawnRadius; // filho do Summoner
     public Transform player;      // atribuído quando o player entra
@@ -15,7 +18,14 @@ public class SummonerBehaviour : MonoBehaviour
     void Start()
     {
         animator = GetComponent<Animator>();
+        audioSource = GetComponent<AudioSource>();
+
+        if (audioSource == null)
+        {
+            Debug.LogError("AudioSource não encontrado no Summoner.");
+        }
     }
+
 
     void OnTriggerEnter2D(Collider2D other)
     {
@@ -37,8 +47,6 @@ public class SummonerBehaviour : MonoBehaviour
 
     public void Summon()
     {
-        Debug.Log("Summon() foi chamado");
-
         if (!isPlayerInZone || player == null || spawnedGhouls.Count >= maxGhouls)
             return;
 
@@ -48,7 +56,14 @@ public class SummonerBehaviour : MonoBehaviour
         spawnRadius.localScale = scale;
 
         animator.SetTrigger("Summon");
+
+        // Toca som
+        if (audioSource != null && summonSound != null)
+        {
+            audioSource.PlayOneShot(summonSound);
+        }
     }
+
 
 
 
