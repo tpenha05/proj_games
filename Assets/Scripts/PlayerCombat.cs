@@ -14,6 +14,8 @@ public class PlayerCombat : MonoBehaviour
     private float nextLightAttackTime = 0f;
     private float nextPowerTime       = 0f;
 
+    public AttackHitbox attackHitbox;
+
     void Awake()
     {
         animator = GetComponent<Animator>();
@@ -52,5 +54,7 @@ public class PlayerCombat : MonoBehaviour
             nextPowerTime = Time.time + powerCooldown;
         }
     }
-
+    public void EnableLightHitbox()  => attackHitbox.EnableLightHitbox();
+    public void EnablePowerHitbox()  => attackHitbox.EnablePowerHitbox();
+    public void DisableHitbox()      => attackHitbox.DisableHitbox();
 }
