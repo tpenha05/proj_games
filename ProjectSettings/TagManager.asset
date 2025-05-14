@@ -5,6 +5,7 @@ TagManager:
   serializedVersion: 3
   tags:
   - ground
+  - Spawn
   layers:
   - Default
   - TransparentFX
@@ -55,4 +56,4 @@ TagManager:
     uniqueID: 3443616795
     locked: 0
   m_RenderingLayers:
-  - Default
+  - Default

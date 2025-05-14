@@ -33,7 +33,6 @@ public class EnemyAttack : MonoBehaviour
 
     void Update()
     {
-        Debug.Log($"Can attack? {!isAttacking && Time.time >= lastAttackTime + attackCooldown}");
 
         if (player == null || attackPoint == null) return;
 
@@ -78,17 +77,16 @@ public class EnemyAttack : MonoBehaviour
     }
     void PerformAttack()
     {
-        // Verifica se já passou o cooldown para garantir ainda mais segurança
+
         if (Time.time < lastAttackTime) return;
 
-        PlayAttackSound(); // Chama o som do ataque
         Collider2D hitPlayer = Physics2D.OverlapCircle(attackPoint.position, attackRange, playerLayer);
         if (hitPlayer != null)
         {
-            hitPlayer.GetComponent<PlayerMovementKike>()?.TakeDamage(attackDamage);
+            player.GetComponent<PlayerHealth>().TakeDamage();
         }
         isAttacking = false;   
-        lastAttackTime = Time.time;    
+        lastAttackTime = Time.time;     
 
 
     }

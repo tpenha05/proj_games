@@ -73,5 +73,27 @@ public class PlayerHealth : MonoBehaviour
         if (playerMovement != null)
             playerMovement.enabled = true;
     }
+    
+    public void Heal()
+    {
+        // Se já estiver com vida cheia, não faz nada
+        if (currentHealth == hearts.Length)
+            return;
+
+        currentHealth = hearts.Length;
+
+        // Reativa todos os corações
+        foreach (var heart in hearts)
+        {
+            if (heart != null)
+                heart.SetActive(true);
+        }
+
+        // Reativa o movimento (caso tenha morrido)
+        if (playerMovement != null)
+            playerMovement.enabled = true;
+    }
+
+    
 
 }
