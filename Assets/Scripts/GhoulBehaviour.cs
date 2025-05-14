@@ -6,6 +6,8 @@ public class EnemyAttack : MonoBehaviour
     public Transform player;
     public Transform attackPoint;
     public LayerMask playerLayer;
+    public AudioSource audioSource;
+    public AudioClip attackSound;
 
     private bool isAwaken = false;
 
@@ -25,7 +27,17 @@ public class EnemyAttack : MonoBehaviour
     void Start()
     {
         animator = GetComponent<Animator>();
+        if (audioSource == null)
+            audioSource = GetComponent<AudioSource>();
+
+        // Verifica se os objetos necessários estão configurados
+        if (player == null)
+            Debug.LogWarning("Player reference not set in " + gameObject.name);
+        
+        if (attackPoint == null)
+            Debug.LogWarning("Attack Point reference not set in " + gameObject.name);
     }
+
     public void OnAttackAnimationEnd()
     {
         Debug.Log("Fim da animação de ataque");
@@ -33,7 +45,7 @@ public class EnemyAttack : MonoBehaviour
 
     void Update()
     {
-
+        // Verificação de null para evitar NullReferenceException
         if (player == null || attackPoint == null) return;
 
         // Movimento horizontal se player estiver na zona
@@ -42,7 +54,7 @@ public class EnemyAttack : MonoBehaviour
         {
             float distanceX = player.position.x - transform.position.x;
 
-            if (Mathf.Abs(distanceX) > 0.1f  && distance >= attackRange)
+            if (Mathf.Abs(distanceX) > 0.1f && distance >= attackRange)
             {
                 Vector3 direction = new Vector3(Mathf.Sign(distanceX), 0f, 0f);
                 transform.position += direction * moveSpeed * Time.deltaTime;
@@ -54,17 +66,21 @@ public class EnemyAttack : MonoBehaviour
                 isWalking = false;
             }
 
-            animator.SetBool("isWalking", isWalking);
+            // Verifica se o animator existe antes de usar
+            if (animator != null)
+                animator.SetBool("isWalking", isWalking);
         }
         else
         {
-            animator.SetBool("isWalking", false);
+            if (animator != null)
+                animator.SetBool("isWalking", false);
         }
 
         if (distance <= attackRange && Time.time >= lastAttackTime + attackCooldown && isAwaken && !isAttacking)
         {
             isAttacking = true; // Marca que está atacando
-            animator.SetTrigger("Attack");
+            if (animator != null)
+                animator.SetTrigger("Attack");
         }
 
         // Vira para o lado do player
@@ -75,22 +91,24 @@ public class EnemyAttack : MonoBehaviour
             scale.x = Mathf.Abs(scale.x);
         transform.localScale = scale;
     }
+
     void PerformAttack()
     {
-
         if (Time.time < lastAttackTime) return;
+
+        // Verifica se o attackPoint existe antes de usar
+        if (attackPoint == null) return;
 
         Collider2D hitPlayer = Physics2D.OverlapCircle(attackPoint.position, attackRange, playerLayer);
         if (hitPlayer != null)
         {
-            player.GetComponent<PlayerHealth>().TakeDamage();
+            PlayerHealth playerHealth = player.GetComponent<PlayerHealth>();
+            if (playerHealth != null)
+                playerHealth.TakeDamage();
         }
-        isAttacking = false;   
-        lastAttackTime = Time.time;     
-
-
+        isAttacking = false;
+        lastAttackTime = Time.time;
     }
-
 
     void OnDrawGizmosSelected()
     {
@@ -108,8 +126,6 @@ public class EnemyAttack : MonoBehaviour
     {
         isAwaken = false;
     }
-    public AudioSource audioSource;
-    public AudioClip attackSound;
 
     public void PlayAttackSound()
     {
@@ -118,10 +134,11 @@ public class EnemyAttack : MonoBehaviour
             audioSource.PlayOneShot(attackSound);
         }
     }
+
     public void SetPlayerInZone(bool inZone)
     {
         isPlayerInZone = inZone;
-        animator.SetTrigger(inZone ? "Wake" : "Sleep");
+        if (animator != null)
+            animator.SetTrigger(inZone ? "Wake" : "Sleep");
     }
-
 }
