@@ -6,6 +6,7 @@ TagManager:
   tags:
   - ground
   - Spawn
+  - Spike
   layers:
   - Default
   - TransparentFX
