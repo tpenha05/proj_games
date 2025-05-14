@@ -225,9 +225,11 @@ GameObject:
   - component: {fileID: 2072835003513363679}
   - component: {fileID: 5171814115862504658}
   - component: {fileID: 9154808983874866723}
+  - component: {fileID: 5021664927265214677}
+  - component: {fileID: 291875288476437368}
   m_Layer: 0
   m_Name: Ghoul
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -362,12 +364,12 @@ CapsuleCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: -0.004737905, y: -0.030795624}
-  m_Size: {x: 0.18509984, y: 0.3749374}
+  m_Offset: {x: 0.00027225533, y: -0.039145935}
+  m_Size: {x: 0.114957355, y: 0.26137313}
   m_Direction: 0
 --- !u!114 &6747123258309938821
 MonoBehaviour:
@@ -376,7 +378,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7180761207616070243}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6a916c59cb5014543b63d05b898b2877, type: 3}
   m_Name: 
@@ -394,18 +396,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7122d28b5fb256e40bd8be0c2c7bb27b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 2037788616747712533, guid: 86f7243992ff58d4f855c563cc3950b6, type: 3}
+  player: {fileID: 0}
   attackPoint: {fileID: 7604370197627022576}
   playerLayer:
     serializedVersion: 2
     m_Bits: 64
-  attackRange: 2
-  attackCooldown: 1
-  attackDelay: 1.31
-  attackDamage: 1
-  moveSpeed: 2
   audioSource: {fileID: 9154808983874866723}
   attackSound: {fileID: 8300000, guid: 348269ddb7656db4fbfb2f69825d664a, type: 3}
+  attackRange: 2
+  attackCooldown: 1
+  attackDelay: 2.65
+  attackDamage: 1
+  moveSpeed: 2
 --- !u!95 &5171814115862504658
 Animator:
   serializedVersion: 7
@@ -525,3 +527,29 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &5021664927265214677
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7180761207616070243}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c752e592a15ff5d4c98f6681fd48422c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &291875288476437368
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7180761207616070243}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1341b7a8158aea14d947b4ad5fb3db56, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 5
+  hitClip: {fileID: 8300000, guid: 04496aa957a446542a1a49148de5488e, type: 3}
