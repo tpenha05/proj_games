@@ -15,12 +15,16 @@ public class InputManager : MonoBehaviour
     public static bool RollWasPressed;
     public static bool DashWasPressed;
     public static bool DropWasPressed;
+    public static bool AttackWasPressed;
+    public static bool PowerWasPressed;
 
     private InputAction _moveAction;
     private InputAction _jumpAction;
     private InputAction _runAction;
     private InputAction _rollAction;
     private InputAction _dashAction;
+    private InputAction _attackAction;
+    private InputAction _powerAction;
 
     private void Awake()
     {
@@ -31,6 +35,8 @@ public class InputManager : MonoBehaviour
         _runAction = PlayerInput.actions["Run"];
         _rollAction = PlayerInput.actions["Roll"];
         _dashAction = PlayerInput.actions["Dash"];
+        _attackAction       = PlayerInput.actions["Attack"];
+        _powerAction  = PlayerInput.actions["Power"];
 
     }
 
@@ -44,6 +50,8 @@ public class InputManager : MonoBehaviour
         RollWasPressed = _rollAction.WasPressedThisFrame();
         DashWasPressed = _dashAction.WasPressedThisFrame();
         DropWasPressed = _runAction.WasPressedThisFrame();
+        AttackWasPressed = _attackAction.WasPressedThisFrame();
+        PowerWasPressed = _powerAction.WasPressedThisFrame();
 
         RunIsHeld = _runAction.IsPressed();
     }

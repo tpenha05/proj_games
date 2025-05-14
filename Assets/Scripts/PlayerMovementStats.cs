@@ -10,7 +10,7 @@ public class PlayerMovementStats : ScriptableObject
     [Range(0f, 100f)] public float Deceleration  = 50f;
 
     [Header("Jump")]
-    [Range(1f, 25f)]  public float JumpForce         = 14f;
+    [Range(1f, 205f)]  public float JumpForce         = 14f;
     [Range(0f, 1f)]   public float JumpCutMultiplier = .5f;
     [Range(5f, 50f)]  public float MaxFallSpeed      = 25f;
 
