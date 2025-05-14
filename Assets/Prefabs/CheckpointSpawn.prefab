@@ -264,16 +264,16 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4028511936196707753}
-  m_LocalRotation: {x: 0, y: 0, z: 1, w: 0}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 2250}
-  m_LocalScale: {x: 0.43099996, y: 0.43099996, z: 0.069}
+  m_LocalScale: {x: 0.14, y: 0.14, z: 0.022412993}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 3578050834727822730}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 180}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -24128.691, y: -13592.3}
+  m_AnchoredPosition: {x: -24118, y: -13584.302}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &7169850765358038236
@@ -304,7 +304,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: -8864316809402967187, guid: da81f49f87de95a4898af56cad5057cb, type: 3}
+  m_Sprite: {fileID: 3626388263445081737, guid: d458b7323e1087b498dae02f4838416e, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -416,6 +416,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 46c0ec242f587444c8c51c30fa640fd2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  offSprite: {fileID: -7222693908794610564, guid: f5a04c2b6e8445745a1673f8254963a5, type: 3}
+  activateSprites:
+  - {fileID: -7222693908794610564, guid: f5a04c2b6e8445745a1673f8254963a5, type: 3}
+  - {fileID: -1871506167, guid: f5a04c2b6e8445745a1673f8254963a5, type: 3}
+  - {fileID: -722426698, guid: f5a04c2b6e8445745a1673f8254963a5, type: 3}
+  - {fileID: 721998673, guid: f5a04c2b6e8445745a1673f8254963a5, type: 3}
+  - {fileID: 976563232, guid: f5a04c2b6e8445745a1673f8254963a5, type: 3}
+  - {fileID: 2006808435, guid: f5a04c2b6e8445745a1673f8254963a5, type: 3}
+  - {fileID: 878371863, guid: f5a04c2b6e8445745a1673f8254963a5, type: 3}
+  - {fileID: 1133214215, guid: f5a04c2b6e8445745a1673f8254963a5, type: 3}
+  onSprites:
+  - {fileID: 2006808435, guid: f5a04c2b6e8445745a1673f8254963a5, type: 3}
+  - {fileID: 878371863, guid: f5a04c2b6e8445745a1673f8254963a5, type: 3}
+  - {fileID: 1133214215, guid: f5a04c2b6e8445745a1673f8254963a5, type: 3}
+  frameTime: 0.1
+  isSpawn: 1
+  uiCanvas: {fileID: 1376222726554801372}
 --- !u!58 &4997040330652754442
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -450,5 +467,5 @@ CircleCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0.0061501563, y: -0.054319948}
-  m_Radius: 0.31236628
+  m_Offset: {x: 0.004801035, y: -0.039479434}
+  m_Radius: 0.42839205

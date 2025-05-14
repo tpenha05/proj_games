@@ -18,7 +18,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &3578050834727822730
 RectTransform:
   m_ObjectHideFlags: 0
@@ -343,7 +343,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 4, y: 4, z: 4}
+  m_LocalScale: {x: 4.5, y: 4.5, z: 4.5}
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 3578050834727822730}
@@ -416,6 +416,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 46c0ec242f587444c8c51c30fa640fd2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  offSprite: {fileID: -7222693908794610564, guid: f5a04c2b6e8445745a1673f8254963a5, type: 3}
+  activateSprites:
+  - {fileID: -7222693908794610564, guid: f5a04c2b6e8445745a1673f8254963a5, type: 3}
+  - {fileID: -1871506167, guid: f5a04c2b6e8445745a1673f8254963a5, type: 3}
+  - {fileID: -722426698, guid: f5a04c2b6e8445745a1673f8254963a5, type: 3}
+  - {fileID: 721998673, guid: f5a04c2b6e8445745a1673f8254963a5, type: 3}
+  - {fileID: 976563232, guid: f5a04c2b6e8445745a1673f8254963a5, type: 3}
+  - {fileID: 2006808435, guid: f5a04c2b6e8445745a1673f8254963a5, type: 3}
+  - {fileID: 878371863, guid: f5a04c2b6e8445745a1673f8254963a5, type: 3}
+  - {fileID: 1133214215, guid: f5a04c2b6e8445745a1673f8254963a5, type: 3}
+  onSprites:
+  - {fileID: 2006808435, guid: f5a04c2b6e8445745a1673f8254963a5, type: 3}
+  - {fileID: 878371863, guid: f5a04c2b6e8445745a1673f8254963a5, type: 3}
+  - {fileID: 1133214215, guid: f5a04c2b6e8445745a1673f8254963a5, type: 3}
+  frameTime: 0.1
+  isSpawn: 0
+  uiCanvas: {fileID: 1376222726554801372}
 --- !u!58 &4997040330652754442
 CircleCollider2D:
   m_ObjectHideFlags: 0
