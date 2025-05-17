@@ -1,6 +1,5 @@
-
 using UnityEngine;
-using System.Collections;   
+using System.Collections;
 
 [RequireComponent(typeof(Rigidbody2D), typeof(BoxCollider2D), typeof(Animator))]
 public class PlayerMovement : MonoBehaviour
@@ -45,12 +44,19 @@ public class PlayerMovement : MonoBehaviour
     {
         if (isHanging)
         {
+            // Só reage a espaço e shift
             if (InputManager.JumpWasPressed)
+            {
                 StartCoroutine(ClimbLedge());
-            else if (InputManager.RunIsHeld)
+            }
+            else if (Input.GetKeyDown(KeyCode.LeftShift) || Input.GetKeyDown(KeyCode.RightShift))
+            {
                 DropFromLedge();
-            return;
+            }
+
+            return; // impede todo o resto
         }
+
 
         HandleTimers();
         ReadInput();
@@ -87,7 +93,14 @@ public class PlayerMovement : MonoBehaviour
 
     void ReadInput()
     {
-        moveInput = InputManager.Movement;
+        if (!isHanging)
+        {
+            moveInput = InputManager.Movement;
+        }
+        else
+        {
+            moveInput = Vector2.zero; // zera movimento horizontal se pendurado
+        }
 
         if (InputManager.JumpWasPressed)
             jumpBufferCounter = MoveStats.JumpBufferTime;
@@ -98,6 +111,7 @@ public class PlayerMovement : MonoBehaviour
         if (InputManager.RollWasPressed) TryRoll();
         if (InputManager.DashWasPressed) TryDash();
     }
+
 
     void CheckGround()
     {
@@ -131,10 +145,9 @@ public class PlayerMovement : MonoBehaviour
         rb.gravityScale = 0f;
         anim.SetTrigger("LedgeHold");
 
-        // Ajuste fino da posição do personagem (ajuste conforme necessário)
+        // Ajuste fino da posição do personagem
         Vector3 hangOffset = new Vector3(isFacingRight ? -0.2f : 0.2f, -0.3f, 0f);
         transform.position += hangOffset;
-
     }
 
     IEnumerator ClimbLedge()
@@ -142,12 +155,11 @@ public class PlayerMovement : MonoBehaviour
         anim.SetTrigger("LedgeClimb");
 
         Vector3 startPos = transform.position;
-        Vector3 targetPos = startPos + new Vector3(isFacingRight ? 1f : -1f, 1.5f, 0f);
+        Vector3 targetPos = startPos + new Vector3(isFacingRight ? 0.5f : -0.5f, 0.8f, 0f);
 
         float duration = 0.5f;
         float elapsed = 0f;
 
-        isHanging = false;
         rb.gravityScale = 0f;
         rb.linearVelocity = Vector2.zero;
 
@@ -160,6 +172,9 @@ public class PlayerMovement : MonoBehaviour
 
         transform.position = targetPos;
         rb.gravityScale = defaultGravityScale;
+
+        // Agora sim, encerrou a subida
+        isHanging = false;
     }
 
     void DropFromLedge()
@@ -277,4 +292,3 @@ public class PlayerMovement : MonoBehaviour
             Gizmos.DrawWireSphere(ledgeCheckUpper.position, 0.1f);
     }
 }
-
