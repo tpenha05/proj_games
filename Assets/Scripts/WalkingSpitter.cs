@@ -17,15 +17,15 @@ public class WalkingSpitter : MonoBehaviour
     }
 
     void FixedUpdate()
-    {   
-        Debug.Log("Scale: " + transform.localScale);
+    {
         if (player == null) return;
 
         float distanceToPlayer = Vector2.Distance(transform.position, player.position);
 
         if (distanceToPlayer > stopDistance)
         {
-            Vector2 direction = (player.position - transform.position).normalized;
+            // Move apenas no eixo X
+            Vector2 direction = new Vector2(player.position.x - transform.position.x, 0).normalized;
             rb.MovePosition(rb.position + direction * moveSpeed * Time.fixedDeltaTime);
             anim.SetWalking(true);
         }
@@ -34,6 +34,7 @@ public class WalkingSpitter : MonoBehaviour
             anim.SetWalking(false);
         }
 
+        // Virar o sprite na direção do jogador
         Vector3 scale = transform.localScale;
         scale.x = (player.position.x > transform.position.x) ? Mathf.Abs(scale.x) : -Mathf.Abs(scale.x);
         transform.localScale = scale;
