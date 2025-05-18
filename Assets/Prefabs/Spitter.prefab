@@ -18,7 +18,7 @@ GameObject:
   - component: {fileID: 7190960023238452935}
   - component: {fileID: 8943449692864078676}
   - component: {fileID: 8065940791871689919}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Spitter
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -82,9 +82,9 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingLayerID: -710076127
+  m_SortingLayer: 2
+  m_SortingOrder: 6
   m_Sprite: {fileID: 8793639957104055765, guid: 55a4db399cbc1914aad7a05f083e9756, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0

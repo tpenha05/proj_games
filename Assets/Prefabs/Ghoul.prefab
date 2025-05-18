@@ -218,16 +218,15 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8050998673026837725}
+  - component: {fileID: 5171814115862504658}
   - component: {fileID: 4762788176719806406}
   - component: {fileID: 9076728123874184772}
   - component: {fileID: 6834559468306518514}
-  - component: {fileID: 6747123258309938821}
-  - component: {fileID: 2072835003513363679}
-  - component: {fileID: 5171814115862504658}
   - component: {fileID: 9154808983874866723}
+  - component: {fileID: 2072835003513363679}
   - component: {fileID: 5021664927265214677}
   - component: {fileID: 291875288476437368}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Ghoul
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -252,6 +251,28 @@ Transform:
   - {fileID: 3640580525269437060}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!95 &5171814115862504658
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7180761207616070243}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 6dd2db01ab6d12a419ae1afeec72614d, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!212 &4762788176719806406
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -293,9 +314,9 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingLayerID: -710076127
+  m_SortingLayer: 2
+  m_SortingOrder: 6
   m_Sprite: {fileID: 4736215876436352664, guid: c96707c48e9cbb24ab0565f6c731e299, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -321,7 +342,7 @@ Rigidbody2D:
   m_UseAutoMass: 0
   m_Mass: 1
   m_LinearDamping: 0
-  m_AngularDamping: 0.05
+  m_AngularDamping: 0
   m_GravityScale: 1
   m_Material: {fileID: 0}
   m_IncludeLayers:
@@ -333,7 +354,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 7
+  m_Constraints: 4
 --- !u!70 &6834559468306518514
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -371,65 +392,6 @@ CapsuleCollider2D:
   m_Offset: {x: 0.00027225533, y: -0.039145935}
   m_Size: {x: 0.114957355, y: 0.26137313}
   m_Direction: 0
---- !u!114 &6747123258309938821
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7180761207616070243}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6a916c59cb5014543b63d05b898b2877, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  health: 5
---- !u!114 &2072835003513363679
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7180761207616070243}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7122d28b5fb256e40bd8be0c2c7bb27b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  player: {fileID: 0}
-  attackPoint: {fileID: 7604370197627022576}
-  playerLayer:
-    serializedVersion: 2
-    m_Bits: 64
-  audioSource: {fileID: 9154808983874866723}
-  attackSound: {fileID: 8300000, guid: 348269ddb7656db4fbfb2f69825d664a, type: 3}
-  attackRange: 2
-  attackCooldown: 1
-  attackDelay: 2.65
-  attackDamage: 1
-  moveSpeed: 2
---- !u!95 &5171814115862504658
-Animator:
-  serializedVersion: 7
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7180761207616070243}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 6dd2db01ab6d12a419ae1afeec72614d, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_AnimatePhysics: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorStateOnDisable: 0
-  m_WriteDefaultValuesOnDisable: 0
 --- !u!82 &9154808983874866723
 AudioSource:
   m_ObjectHideFlags: 0
@@ -527,6 +489,30 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &2072835003513363679
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7180761207616070243}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7122d28b5fb256e40bd8be0c2c7bb27b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 0}
+  attackPoint: {fileID: 7604370197627022576}
+  playerLayer:
+    serializedVersion: 2
+    m_Bits: 64
+  audioSource: {fileID: 9154808983874866723}
+  attackSound: {fileID: 8300000, guid: 348269ddb7656db4fbfb2f69825d664a, type: 3}
+  attackRange: 2
+  attackCooldown: 1
+  attackDelay: 2.65
+  attackDamage: 1
+  moveSpeed: 2
 --- !u!114 &5021664927265214677
 MonoBehaviour:
   m_ObjectHideFlags: 0

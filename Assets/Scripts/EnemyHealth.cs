@@ -25,7 +25,7 @@ public class EnemyHealth : MonoBehaviour
     void OnDestroy()
     {
     }
-    
+
     void OnDisable()
     {
     }
@@ -66,6 +66,10 @@ public class EnemyHealth : MonoBehaviour
         if (shooter != null)
             shooter.enabled = false;
         Destroy(gameObject, 1.2f);
+    }
+    public bool IsDead()
+    {
+        return isDead;
     }
 
 

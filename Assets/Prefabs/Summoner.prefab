@@ -151,7 +151,7 @@ GameObject:
   - component: {fileID: 7467475141858858131}
   - component: {fileID: 2901401094430728205}
   - component: {fileID: 6434089739021273053}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Summoner
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -216,9 +216,9 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingLayerID: -710076127
+  m_SortingLayer: 2
+  m_SortingOrder: 6
   m_Sprite: {fileID: 8793639957104055765, guid: 8b2a376dc5bf9544ab29859996f32d55, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0

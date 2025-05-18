@@ -10,6 +10,7 @@ public class EnemyAttack : MonoBehaviour
     public AudioClip attackSound;
 
     private bool isAwaken = false;
+    private EnemyHealth enemyHealth;
 
     public float attackRange = 1.5f;
     public float attackCooldown = 2f;
@@ -27,20 +28,22 @@ public class EnemyAttack : MonoBehaviour
     void Start()
     {
         animator = GetComponent<Animator>();
+
         if (audioSource == null)
             audioSource = GetComponent<AudioSource>();
 
         // Verifica se os objetos necessários estão configurados
         if (player == null)
             Debug.LogWarning("Player reference not set in " + gameObject.name);
-        
+
         if (attackPoint == null)
             Debug.LogWarning("Attack Point reference not set in " + gameObject.name);
+        
+        
     }
 
     public void OnAttackAnimationEnd()
     {
-        Debug.Log("Fim da animação de ataque");
     }
 
     void Update()
@@ -94,7 +97,11 @@ public class EnemyAttack : MonoBehaviour
 
     void PerformAttack()
     {
+        if (enemyHealth != null && enemyHealth.IsDead())
+        return;
+
         if (Time.time < lastAttackTime) return;
+
 
         // Verifica se o attackPoint existe antes de usar
         if (attackPoint == null) return;
