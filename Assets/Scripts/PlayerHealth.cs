@@ -9,6 +9,11 @@ public class PlayerHealth : MonoBehaviour
     private Animator anim;
     private PlayerMovement playerMovement;
     private Vector3 initialPosition;
+    
+    private bool isInvulnerable = false;
+    
+    public float invulnerabilityTime = 1.0f;
+    private float invulnerabilityTimer = 0f;
 
     public GameOverUIController gameOverUIController;
 
@@ -17,7 +22,7 @@ public class PlayerHealth : MonoBehaviour
         currentHealth = hearts.Length;
         anim = GetComponent<Animator>();
         playerMovement = GetComponent<PlayerMovement>();
-        initialPosition = transform.position; // Salva a posição inicial
+        initialPosition = transform.position;
     }
 
     void Update()
@@ -26,15 +31,34 @@ public class PlayerHealth : MonoBehaviour
         {
             TakeDamage();
         }
+        
+        if (isInvulnerable)
+        {
+            invulnerabilityTimer -= Time.deltaTime;
+            if (invulnerabilityTimer <= 0)
+            {
+                isInvulnerable = false;
+            }
+        }
     }
 
     public void TakeDamage()
     {
+        if (isInvulnerable) return;
+        
+        if (playerMovement != null && (IsPlayerRolling() || IsPlayerDashing()))
+        {
+            return;
+        }
+        
         if (currentHealth <= 0) return;
 
         currentHealth--;
 
         anim.SetTrigger("Hit");
+        
+        isInvulnerable = true;
+        invulnerabilityTimer = invulnerabilityTime;
 
         GameObject heartToRemove = hearts[currentHealth];
         if (heartToRemove != null)
@@ -50,50 +74,71 @@ public class PlayerHealth : MonoBehaviour
                 playerMovement.enabled = false;
 
             gameOverUIController.ShowGameOver(PlayerScore.runas);
-
         }
+    }
+    
+    private bool IsPlayerRolling()
+    {
+        System.Reflection.FieldInfo isRollingField = 
+            typeof(PlayerMovement).GetField("isRolling", 
+                System.Reflection.BindingFlags.NonPublic | 
+                System.Reflection.BindingFlags.Instance);
+                
+        if (isRollingField != null)
+        {
+            return (bool)isRollingField.GetValue(playerMovement);
+        }
+        
+        return false;
+    }
+    
+    private bool IsPlayerDashing()
+    {
+        System.Reflection.FieldInfo isDashingField = 
+            typeof(PlayerMovement).GetField("isDashing", 
+                System.Reflection.BindingFlags.NonPublic | 
+                System.Reflection.BindingFlags.Instance);
+                
+        if (isDashingField != null)
+        {
+            return (bool)isDashingField.GetValue(playerMovement);
+        }
+        
+        return false;
     }
 
     public void Revive()
     {
-        // Restaura a vida
         currentHealth = hearts.Length;
 
-        // Reposiciona o jogador
         transform.position = initialPosition;
 
-        // Reativa todos os corações
         foreach (var heart in hearts)
         {
             if (heart != null)
                 heart.SetActive(true);
         }
 
-        // Reativa o movimento
         if (playerMovement != null)
             playerMovement.enabled = true;
+            
+        isInvulnerable = false;
     }
     
     public void Heal()
     {
-        // Se já estiver com vida cheia, não faz nada
         if (currentHealth == hearts.Length)
             return;
 
         currentHealth = hearts.Length;
 
-        // Reativa todos os corações
         foreach (var heart in hearts)
         {
             if (heart != null)
                 heart.SetActive(true);
         }
 
-        // Reativa o movimento (caso tenha morrido)
         if (playerMovement != null)
             playerMovement.enabled = true;
     }
-
-    
-
 }
