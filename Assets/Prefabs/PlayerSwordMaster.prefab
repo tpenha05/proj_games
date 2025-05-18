@@ -270,6 +270,7 @@ GameObject:
   - component: {fileID: 4146855929083626949}
   - component: {fileID: 8799369778172987938}
   - component: {fileID: 8044799691438964256}
+  - component: {fileID: 1686668854273721803}
   m_Layer: 0
   m_Name: PlayerSwordMaster
   m_TagString: Player
@@ -339,7 +340,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -710076127
   m_SortingLayer: 2
-  m_SortingOrder: 1
+  m_SortingOrder: 0
   m_Sprite: {fileID: -7505785758952087195, guid: 9efd57239dc53aa4c8a3d43bca565e7f, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -480,6 +481,26 @@ MonoBehaviour:
   lightAttackCooldown: 0.5
   powerCooldown: 1.5
   attackHitbox: {fileID: 1793075357616545574}
+--- !u!114 &1686668854273721803
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5215786211372471057}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3eb56cd3597ea034e83c3164f96c7ec0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hearts:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  explosionFXPrefab: {fileID: 5217398167752750548, guid: a575857e9228f784b9f31f052f7b2357, type: 3}
+  gameOverUIController: {fileID: 0}
 --- !u!1 &5753677686255922995
 GameObject:
   m_ObjectHideFlags: 0
