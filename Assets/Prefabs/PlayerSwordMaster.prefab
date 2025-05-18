@@ -270,8 +270,8 @@ GameObject:
   - component: {fileID: 4146855929083626949}
   - component: {fileID: 8799369778172987938}
   - component: {fileID: 8044799691438964256}
-  - component: {fileID: 1686668854273721803}
-  m_Layer: 0
+  - component: {fileID: 3495185143127062568}
+  m_Layer: 6
   m_Name: PlayerSwordMaster
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -481,7 +481,7 @@ MonoBehaviour:
   lightAttackCooldown: 0.5
   powerCooldown: 1.5
   attackHitbox: {fileID: 1793075357616545574}
---- !u!114 &1686668854273721803
+--- !u!114 &3495185143127062568
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
