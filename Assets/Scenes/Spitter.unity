@@ -131,10 +131,6 @@ PrefabInstance:
       propertyPath: player
       value: 
       objectReference: {fileID: 512844291}
-    - target: {fileID: 1917107105933382579, guid: d9f8920dc6785334f9dec87b372dcb56, type: 3}
-      propertyPath: m_Constraints
-      value: 4
-      objectReference: {fileID: 0}
     - target: {fileID: 3238883631086770534, guid: d9f8920dc6785334f9dec87b372dcb56, type: 3}
       propertyPath: player
       value: 
