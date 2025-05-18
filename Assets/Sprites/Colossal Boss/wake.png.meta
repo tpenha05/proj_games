@@ -1,0 +1,442 @@
+fileFormatVersion: 2
+guid: b0e20823edda5a045957cb3ea326f541
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -5646534648061465568
+    second: wake_0
+  - first:
+      213: 4756217330321405332
+    second: wake_1
+  - first:
+      213: 55302869344147347
+    second: wake_2
+  - first:
+      213: -2443036359680027642
+    second: wake_3
+  - first:
+      213: -1526771432911371659
+    second: wake_4
+  - first:
+      213: -1542694700233317549
+    second: wake_5
+  - first:
+      213: 8817584447170446993
+    second: wake_6
+  - first:
+      213: 4971632537983337662
+    second: wake_7
+  - first:
+      213: -338762886233240566
+    second: wake_8
+  - first:
+      213: 1081924751609278410
+    second: wake_9
+  - first:
+      213: -7193405330143818465
+    second: wake_10
+  - first:
+      213: -4636481247542846550
+    second: wake_11
+  - first:
+      213: -1001433104100178011
+    second: wake_12
+  - first:
+      213: 8865607834726479009
+    second: wake_13
+  - first:
+      213: -5770703007007389899
+    second: wake_14
+  - first:
+      213: 335250988314414400
+    second: wake_15
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 16384
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: wake_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 183
+        height: 94
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 739bec1a5abc98f4282402b2f6731f30
+      internalID: -1677830421
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: wake_1
+      rect:
+        serializedVersion: 2
+        x: 183
+        y: 0
+        width: 183
+        height: 94
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9617a14763b5e6a47a16b2ae020f7766
+      internalID: 2109708544
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: wake_2
+      rect:
+        serializedVersion: 2
+        x: 366
+        y: 0
+        width: 183
+        height: 94
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3c84014a394521c42a95136aecf0fc7b
+      internalID: 94606272
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: wake_3
+      rect:
+        serializedVersion: 2
+        x: 549
+        y: 0
+        width: 183
+        height: 94
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1bb81ea5a95d2c14dbc27d28a18d3c42
+      internalID: -780524076
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: wake_4
+      rect:
+        serializedVersion: 2
+        x: 755
+        y: 0
+        width: 183
+        height: 94
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 10815b7ec9dd6724da8d3ed5474bd584
+      internalID: -269498812
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: wake_5
+      rect:
+        serializedVersion: 2
+        x: 944
+        y: 0
+        width: 183
+        height: 94
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 69e3421c1b531f940be5f60a5a9c1e6a
+      internalID: -932443118
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: wake_6
+      rect:
+        serializedVersion: 2
+        x: 1145
+        y: 0
+        width: 183
+        height: 94
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7f3d3020d55f8044aa782b6ced7ff655
+      internalID: 1470439098
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: wake_8
+      rect:
+        serializedVersion: 2
+        x: 1397
+        y: 0
+        width: 183
+        height: 94
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c06c7cfcbe7989f4eaef71b221ab041b
+      internalID: 713795699
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: wake_9
+      rect:
+        serializedVersion: 2
+        x: 1623
+        y: 0
+        width: 183
+        height: 94
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7edab28f4e219194493e11ad06aded37
+      internalID: -333344389
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: wake_10
+      rect:
+        serializedVersion: 2
+        x: 1817
+        y: 0
+        width: 183
+        height: 94
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e587d269825da3b409f0cc1dd4fbddb1
+      internalID: 1202415235
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: wake_11
+      rect:
+        serializedVersion: 2
+        x: 2018
+        y: 0
+        width: 183
+        height: 94
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6abe2744cdfb71e4eb17696625b4aed2
+      internalID: 224988790
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: wake_12
+      rect:
+        serializedVersion: 2
+        x: 2206
+        y: 0
+        width: 183
+        height: 94
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2055aa648cfc8af4cb2c6ccddf3d0cd7
+      internalID: 965608419
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: c4e1ab78a7896144197578696a8c2ca4
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      wake_0: -1677830421
+      wake_1: 2109708544
+      wake_10: 1202415235
+      wake_11: 224988790
+      wake_12: 965608419
+      wake_2: 94606272
+      wake_3: -780524076
+      wake_4: -269498812
+      wake_5: -932443118
+      wake_6: 1470439098
+      wake_7: -360164487
+      wake_8: 713795699
+      wake_9: -333344389
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

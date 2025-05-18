@@ -24,17 +24,14 @@ public class EnemyHealth : MonoBehaviour
 
     void OnDestroy()
     {
-        Debug.LogWarning($"[OnDestroy] Inimigo destruído! isDead: {isDead}, currentHealth: {currentHealth}");
     }
     
     void OnDisable()
     {
-        Debug.LogWarning("Enemy foi DESATIVADO, não destruído.");
     }
 
     public void TakeDamage(int amount)
     {
-        Debug.Log("Enemy took damage: " + amount);
         if (isDead) return;
 
         currentHealth -= amount;
@@ -54,7 +51,6 @@ public class EnemyHealth : MonoBehaviour
 
     private void Die()
     {
-        Debug.Log("Enemy died");
         isDead = true;
         anim.PlayDeath();
 

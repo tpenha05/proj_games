@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b46571cc8dd66bf41a0f919d44638b62, type: 3}
   m_Name: Player Movement Stats
   m_EditorClassIdentifier: 
-  WalkSpeed: 6
-  RunSpeed: 10
+  WalkSpeed: 4
+  RunSpeed: 7
   Acceleration: 100
   Deceleration: 100
   JumpForce: 17

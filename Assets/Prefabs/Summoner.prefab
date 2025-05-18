@@ -149,9 +149,11 @@ GameObject:
   - component: {fileID: 3783980875738181133}
   - component: {fileID: 3379751897818226076}
   - component: {fileID: 7467475141858858131}
+  - component: {fileID: 2901401094430728205}
+  - component: {fileID: 6434089739021273053}
   m_Layer: 0
   m_Name: Summoner
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -338,7 +340,7 @@ MonoBehaviour:
   summonSound: {fileID: 8300000, guid: 97475ada1cdfa4248ba36340c77cbf89, type: 3}
   ghoulPrefab: {fileID: 7180761207616070243, guid: 20714e1c1f0c54547828fdb5733a03d8, type: 3}
   spawnRadius: {fileID: 5887998556827184234}
-  player: {fileID: 2037788616747712533, guid: 86f7243992ff58d4f855c563cc3950b6, type: 3}
+  player: {fileID: 0}
   maxGhouls: 5
 --- !u!82 &7467475141858858131
 AudioSource:
@@ -437,6 +439,32 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &2901401094430728205
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6361723555940162560}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c752e592a15ff5d4c98f6681fd48422c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &6434089739021273053
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6361723555940162560}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1341b7a8158aea14d947b4ad5fb3db56, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 3
+  hitClip: {fileID: 8300000, guid: 7a53dc373fcb71545a3cdc6e5ee2e31a, type: 3}
 --- !u!1 &7922082750043402620
 GameObject:
   m_ObjectHideFlags: 0
