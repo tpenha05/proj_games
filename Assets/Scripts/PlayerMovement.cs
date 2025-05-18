@@ -155,7 +155,7 @@ public class PlayerMovement : MonoBehaviour
         anim.SetTrigger("LedgeClimb");
 
         Vector3 startPos = transform.position;
-        Vector3 targetPos = startPos + new Vector3(isFacingRight ? 0.5f : -0.5f, 0.8f, 0f);
+        Vector3 targetPos = startPos + new Vector3(isFacingRight ? 0.75f : -0.75f, 0.8f, 0.25f);
 
         float duration = 0.5f;
         float elapsed = 0f;
