@@ -1,0 +1,836 @@
+fileFormatVersion: 2
+guid: 3c9b5a7c8f72e5d4bab65247d877c520
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -4012159870975733497
+    second: range attack_0
+  - first:
+      213: -1352383708291284983
+    second: range attack_1
+  - first:
+      213: -7408822433711471922
+    second: range attack_2
+  - first:
+      213: 3785727982739203506
+    second: range attack_3
+  - first:
+      213: -5694152494699531375
+    second: range attack_4
+  - first:
+      213: -3832985553800775335
+    second: range attack_5
+  - first:
+      213: 3591304152567125498
+    second: range attack_6
+  - first:
+      213: -391774811950193941
+    second: range attack_7
+  - first:
+      213: -8061926149670555313
+    second: range attack_8
+  - first:
+      213: 2719958603215867229
+    second: range attack_9
+  - first:
+      213: 3868936326779063478
+    second: range attack_10
+  - first:
+      213: 2487055907017408809
+    second: range attack_11
+  - first:
+      213: -3469134718405692560
+    second: range attack_12
+  - first:
+      213: -718140537151601928
+    second: range attack_13
+  - first:
+      213: -3428663487877288005
+    second: range attack_14
+  - first:
+      213: 3328376944504988899
+    second: range attack_15
+  - first:
+      213: 1801017294831815343
+    second: range attack_16
+  - first:
+      213: -8987236995428831528
+    second: range attack_17
+  - first:
+      213: -8113502346389996154
+    second: range attack_18
+  - first:
+      213: -4941588050979064167
+    second: range attack_19
+  - first:
+      213: 1947724414012156328
+    second: range attack_20
+  - first:
+      213: -2778581829371565952
+    second: range attack_21
+  - first:
+      213: -2394649905689207732
+    second: range attack_22
+  - first:
+      213: 1996711940705769717
+    second: range attack_23
+  - first:
+      213: 2788607258560884099
+    second: range attack_24
+  - first:
+      213: 7550829917494520530
+    second: range attack_25
+  - first:
+      213: -7058973480898505128
+    second: range attack_26
+  - first:
+      213: 2259785153995670152
+    second: range attack_27
+  - first:
+      213: 1482815192060152410
+    second: range attack_28
+  - first:
+      213: 5975139540197217130
+    second: range attack_29
+  - first:
+      213: -2612128455936179594
+    second: range attack_30
+  - first:
+      213: -4497931355249256846
+    second: range attack_31
+  - first:
+      213: -5843724573325383432
+    second: range attack_32
+  - first:
+      213: 584457033984601606
+    second: range attack_33
+  - first:
+      213: -6023536744410874643
+    second: range attack_34
+  - first:
+      213: -1056936013215101919
+    second: range attack_35
+  - first:
+      213: -8029693853698939758
+    second: range attack_36
+  - first:
+      213: -6542503179065357060
+    second: range attack_37
+  - first:
+      213: 1987794506934376167
+    second: range attack_38
+  - first:
+      213: -292430707724588665
+    second: range attack_39
+  - first:
+      213: 1474329718643030213
+    second: range attack_40
+  - first:
+      213: 2367366343837222964
+    second: range attack_41
+  - first:
+      213: 4051748116892830494
+    second: range attack_42
+  - first:
+      213: 3509000593979281938
+    second: range attack_43
+  - first:
+      213: 3523857562626824185
+    second: range attack_44
+  - first:
+      213: 5542181874525107474
+    second: range attack_45
+  - first:
+      213: -8648054273504737110
+    second: range attack_46
+  - first:
+      213: 7930277117679436659
+    second: range attack_47
+  - first:
+      213: -962466820523902068
+    second: range attack_48
+  - first:
+      213: 2167160901552059480
+    second: range attack_49
+  - first:
+      213: 4747595873769069349
+    second: range attack_50
+  - first:
+      213: 5747365562552284798
+    second: range attack_51
+  - first:
+      213: 4624680457270610681
+    second: range attack_52
+  - first:
+      213: -2232713824203514225
+    second: range attack_53
+  - first:
+      213: 2821683740698002336
+    second: range attack_54
+  - first:
+      213: -5720321604326106551
+    second: range attack_55
+  - first:
+      213: 3367814858369662076
+    second: range attack_56
+  - first:
+      213: -6931915246619413133
+    second: range attack_57
+  - first:
+      213: 7575881636354218431
+    second: range attack_58
+  - first:
+      213: -4671701081094690186
+    second: range attack_59
+  - first:
+      213: 1056219351029489082
+    second: range attack_60
+  - first:
+      213: 3884711239116808577
+    second: range attack_61
+  - first:
+      213: -6706642289457906559
+    second: range attack_62
+  - first:
+      213: 2358583212963780049
+    second: range attack_63
+  - first:
+      213: 6600705151494946716
+    second: range attack_64
+  - first:
+      213: -905302510438286516
+    second: range attack_65
+  - first:
+      213: -4412892108048534701
+    second: range attack_66
+  - first:
+      213: 2603306594631229599
+    second: range attack_67
+  - first:
+      213: 1243221082512928316
+    second: range attack_68
+  - first:
+      213: -852392488815636823
+    second: range attack_69
+  - first:
+      213: 3363246621962478176
+    second: range attack_70
+  - first:
+      213: -1758735372816905816
+    second: range attack_71
+  - first:
+      213: -2463157857056987293
+    second: range attack_72
+  - first:
+      213: -6263722124585503850
+    second: range attack_73
+  - first:
+      213: 951062246511210088
+    second: range attack_74
+  - first:
+      213: -2286172520467244952
+    second: range attack_75
+  - first:
+      213: 274140703875901154
+    second: range attack_76
+  - first:
+      213: -8689446471979924160
+    second: range attack_77
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: range attack_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 183
+        height: 94
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e4da78a6fcdc5ed43969da9bbefaf8b7
+      internalID: 380229781
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: range attack_1
+      rect:
+        serializedVersion: 2
+        x: 183
+        y: 0
+        width: 183
+        height: 94
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3c9dc13e2649ca245b944bf063c17d34
+      internalID: -53240110
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: range attack_2
+      rect:
+        serializedVersion: 2
+        x: 366
+        y: 0
+        width: 183
+        height: 94
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f77c280255060e740b43b90b0cd4139d
+      internalID: 1245484422
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: range attack_3
+      rect:
+        serializedVersion: 2
+        x: 549
+        y: 0
+        width: 183
+        height: 94
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 176434315beff7e4692437299874525e
+      internalID: -231881233
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: range attack_4
+      rect:
+        serializedVersion: 2
+        x: 756
+        y: 0
+        width: 183
+        height: 94
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 29b14a2fdf4cff245ae86d0e697b13bd
+      internalID: 194022048
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: range attack_5
+      rect:
+        serializedVersion: 2
+        x: 950
+        y: 0
+        width: 183
+        height: 94
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5612a9f864170c24fac1a634964b6e06
+      internalID: -921981971
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: range attack_7
+      rect:
+        serializedVersion: 2
+        x: 1171
+        y: 0
+        width: 183
+        height: 94
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bf760a8a571b87c45948729416f02c4a
+      internalID: 1452784266
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: range attack_8
+      rect:
+        serializedVersion: 2
+        x: 1392
+        y: 0
+        width: 183
+        height: 94
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 02ad763f3c6596445a3040276d69e3a7
+      internalID: -419274900
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: range attack_9
+      rect:
+        serializedVersion: 2
+        x: 1595
+        y: 0
+        width: 183
+        height: 94
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1485b8be22ddfad499fa7c5a8e16593d
+      internalID: 912263194
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: range attack_10
+      rect:
+        serializedVersion: 2
+        x: 1802
+        y: 0
+        width: 183
+        height: 94
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fce38944532947742ae6eb2b0b15467b
+      internalID: 832838876
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: range attack_11
+      rect:
+        serializedVersion: 2
+        x: 2013
+        y: 0
+        width: 183
+        height: 94
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 01c71a89d14642a48859400ea5271a5f
+      internalID: 1445882935
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: range attack_12
+      rect:
+        serializedVersion: 2
+        x: 2224
+        y: 0
+        width: 183
+        height: 94
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 37a979bbf38870244a14ff9cf485212c
+      internalID: 126542259
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: range attack_13
+      rect:
+        serializedVersion: 2
+        x: 2420
+        y: 0
+        width: 183
+        height: 94
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: afa1512772c2c5449ad8a780c5d50b86
+      internalID: 1906865924
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: range attack_15
+      rect:
+        serializedVersion: 2
+        x: 2635
+        y: 0
+        width: 183
+        height: 94
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 111b07c93d6ab8a4e915cffa2d87ac0b
+      internalID: 677811290
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: range attack_16
+      rect:
+        serializedVersion: 2
+        x: 2831
+        y: 0
+        width: 183
+        height: 94
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5f42882e23dfa434e998aa86c05654b6
+      internalID: 1420597801
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: range attack_17
+      rect:
+        serializedVersion: 2
+        x: 3034
+        y: 0
+        width: 183
+        height: 94
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c199c4589c48ac34c83dc6956f597d73
+      internalID: -1496314625
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: range attack_18
+      rect:
+        serializedVersion: 2
+        x: 3241
+        y: 0
+        width: 183
+        height: 94
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 01c4ecd466a125a46bc1071ea01f8985
+      internalID: -1554448414
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: range attack_19
+      rect:
+        serializedVersion: 2
+        x: 3438
+        y: 0
+        width: 183
+        height: 94
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f761e9285e71e6f41adf6d957a051b54
+      internalID: -1540395372
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: range attack_20
+      rect:
+        serializedVersion: 2
+        x: 3632
+        y: 0
+        width: 183
+        height: 94
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1b3b09bf5f8c4204aa3e514645436b6d
+      internalID: -849369586
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: range attack_21
+      rect:
+        serializedVersion: 2
+        x: 3821
+        y: 0
+        width: 183
+        height: 94
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f7b296d87fbd83e4db4e8ff41ea0812c
+      internalID: -196526956
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: range attack_22
+      rect:
+        serializedVersion: 2
+        x: 4026
+        y: 0
+        width: 183
+        height: 94
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c3f4dd187601b374c8217d6ef73e9601
+      internalID: 204331000
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 72950fbc368c0574b9d2fa33245cc291
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      range attack_0: 380229781
+      range attack_1: -53240110
+      range attack_10: 832838876
+      range attack_11: 1445882935
+      range attack_12: 126542259
+      range attack_13: 1906865924
+      range attack_14: -1857767244
+      range attack_15: 677811290
+      range attack_16: 1420597801
+      range attack_17: -1496314625
+      range attack_18: -1554448414
+      range attack_19: -1540395372
+      range attack_2: 1245484422
+      range attack_20: -849369586
+      range attack_21: -196526956
+      range attack_22: 204331000
+      range attack_3: -231881233
+      range attack_4: 194022048
+      range attack_5: -921981971
+      range attack_6: 2013988461
+      range attack_7: 1452784266
+      range attack_8: -419274900
+      range attack_9: 912263194
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

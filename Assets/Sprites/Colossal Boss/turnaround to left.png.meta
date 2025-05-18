@@ -1,0 +1,358 @@
+fileFormatVersion: 2
+guid: 5c0ec06fb1be7894bbb2d5aee6dd9906
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -6274968616790193165
+    second: turnaround to left_0
+  - first:
+      213: -938307987868484366
+    second: turnaround to left_1
+  - first:
+      213: -8418485593871604455
+    second: turnaround to left_2
+  - first:
+      213: -7323347629305609383
+    second: turnaround to left_3
+  - first:
+      213: 3613373301321361750
+    second: turnaround to left_4
+  - first:
+      213: 2530289699360337319
+    second: turnaround to left_5
+  - first:
+      213: 2999951359608609791
+    second: turnaround to left_6
+  - first:
+      213: -3234851159100901685
+    second: turnaround to left_7
+  - first:
+      213: -5003626045663163719
+    second: turnaround to left_8
+  - first:
+      213: 2999201573477379565
+    second: turnaround to left_9
+  - first:
+      213: -2280590099770329328
+    second: turnaround to left_10
+  - first:
+      213: 7717822082071641693
+    second: turnaround to left_11
+  - first:
+      213: 3069988130336828010
+    second: turnaround to left_12
+  - first:
+      213: 8500187288538048133
+    second: turnaround to left_13
+  - first:
+      213: -1508581507045080752
+    second: turnaround to left_14
+  - first:
+      213: 5738877792614492859
+    second: turnaround to left_15
+  - first:
+      213: -1325135255710987384
+    second: turnaround to left_16
+  - first:
+      213: -5121372303194547354
+    second: turnaround to left_17
+  - first:
+      213: -7759682389298825514
+    second: turnaround to left_18
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: turnaround to left_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 183
+        height: 94
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4f71067352d4c594cbae4c7e25864d43
+      internalID: -2068621969
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: turnaround to left_1
+      rect:
+        serializedVersion: 2
+        x: 183
+        y: 0
+        width: 183
+        height: 94
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c672d70780a6ce445873fe050925a046
+      internalID: 1285243133
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: turnaround to left_2
+      rect:
+        serializedVersion: 2
+        x: 379
+        y: 0
+        width: 183
+        height: 94
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 06181c63a9d2a164a8b0ded7df25c3af
+      internalID: 1983878565
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: turnaround to left_3
+      rect:
+        serializedVersion: 2
+        x: 573
+        y: 0
+        width: 183
+        height: 94
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 722e0beda7d9a4b45a49fa05d4a8e013
+      internalID: 682858565
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: turnaround to left_4
+      rect:
+        serializedVersion: 2
+        x: 771
+        y: 0
+        width: 183
+        height: 94
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 16c830c9266d6d440a80cfefc25af418
+      internalID: -1363738069
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: turnaround to left_5
+      rect:
+        serializedVersion: 2
+        x: 963
+        y: 0
+        width: 183
+        height: 94
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 574a020606a52bd4caf86ad61c7504da
+      internalID: 2054581372
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: turnaround to left_6
+      rect:
+        serializedVersion: 2
+        x: 1161
+        y: 0
+        width: 183
+        height: 94
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ea11756356628884586fa63bac49e9d3
+      internalID: 1283875360
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: turnaround to left_7
+      rect:
+        serializedVersion: 2
+        x: 1377
+        y: 0
+        width: 183
+        height: 94
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: df03317ac6b607046b32529bdb6ec20d
+      internalID: -1135028762
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: c21079334497b0940b73275a526fa4b6
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      turnaround to left_0: -2068621969
+      turnaround to left_1: 1285243133
+      turnaround to left_2: 1983878565
+      turnaround to left_3: 682858565
+      turnaround to left_4: -1363738069
+      turnaround to left_5: 2054581372
+      turnaround to left_6: 1283875360
+      turnaround to left_7: -1135028762
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

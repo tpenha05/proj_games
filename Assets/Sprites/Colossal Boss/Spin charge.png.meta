@@ -1,0 +1,338 @@
+fileFormatVersion: 2
+guid: 7353f05118095c0489656ef77dcf7557
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 5621820502732693464
+    second: Spin charge_0
+  - first:
+      213: -618398058779192093
+    second: Spin charge_1
+  - first:
+      213: 3500246057318423219
+    second: Spin charge_2
+  - first:
+      213: 7148996461265311006
+    second: Spin charge_3
+  - first:
+      213: 582353554069120798
+    second: Spin charge_4
+  - first:
+      213: 8221458096945747119
+    second: Spin charge_5
+  - first:
+      213: 4662573818181751689
+    second: Spin charge_6
+  - first:
+      213: -2691456089166107617
+    second: Spin charge_7
+  - first:
+      213: 5897660666307038397
+    second: Spin charge_8
+  - first:
+      213: 3162370970222243573
+    second: Spin charge_9
+  - first:
+      213: 3470001255513142210
+    second: Spin charge_10
+  - first:
+      213: -8102099836789530893
+    second: Spin charge_11
+  - first:
+      213: -1578568254480947598
+    second: Spin charge_12
+  - first:
+      213: -2784323232046763124
+    second: Spin charge_13
+  - first:
+      213: 7495823493399354901
+    second: Spin charge_14
+  - first:
+      213: 6085203133133930151
+    second: Spin charge_15
+  - first:
+      213: -4210921204351549930
+    second: Spin charge_16
+  - first:
+      213: 4830601790523339322
+    second: Spin charge_17
+  - first:
+      213: 1382654264301969660
+    second: Spin charge_18
+  - first:
+      213: 2164613996346005936
+    second: Spin charge_19
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Spin charge_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 183
+        height: 94
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 54bdb3c2e65ed4040927d52aa7460206
+      internalID: 1947454189
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Spin charge_1
+      rect:
+        serializedVersion: 2
+        x: 183
+        y: 0
+        width: 183
+        height: 94
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 09fe7bcaa7ab2e242bf18dddb9082d58
+      internalID: -402936373
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Spin charge_2
+      rect:
+        serializedVersion: 2
+        x: 366
+        y: 0
+        width: 183
+        height: 94
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 25a9976dbeeeb254a81da1547aedcaea
+      internalID: -54515396
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Spin charge_3
+      rect:
+        serializedVersion: 2
+        x: 575
+        y: 0
+        width: 183
+        height: 94
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1419f1533af56fc478fbd1c5f4a34357
+      internalID: -1508514030
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Spin charge_4
+      rect:
+        serializedVersion: 2
+        x: 780
+        y: 0
+        width: 183
+        height: 94
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fa76e4cd32d10ef4480dc3638775e3d9
+      internalID: -377167220
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Spin charge_5
+      rect:
+        serializedVersion: 2
+        x: 976
+        y: 0
+        width: 183
+        height: 94
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 05cc2bd2f9e7b3543ab9203c1fa8036f
+      internalID: 1039707665
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Spin charge_6
+      rect:
+        serializedVersion: 2
+        x: 1177
+        y: 0
+        width: 183
+        height: 94
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1b0b8acb85cf2a24f895b7fbae7fa5ce
+      internalID: 2070415612
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: baebe78f7de89014bb820b98ded92c54
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      Spin charge_0: 1947454189
+      Spin charge_1: -402936373
+      Spin charge_2: -54515396
+      Spin charge_3: -1508514030
+      Spin charge_4: -377167220
+      Spin charge_5: 1039707665
+      Spin charge_6: 2070415612
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
