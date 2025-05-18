@@ -44,7 +44,6 @@ public class DocUI : MonoBehaviour
     {
         if (docPanel.activeInHierarchy && Input.GetKeyDown(KeyCode.Escape))
         {
-            Debug.Log("Fechando o painel com ESC");
             HideDocument();
         }
     }
