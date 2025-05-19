@@ -22,7 +22,7 @@ public class PlayerMovement : MonoBehaviour
     Rigidbody2D rb;
     Animator anim;
 
-    bool isGrounded;
+    public bool isGrounded;
     bool wasGrounded;
     bool isFacingRight = true;
     bool isHanging = false;
