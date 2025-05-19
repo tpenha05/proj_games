@@ -147,7 +147,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      floresta_1920x1080_0: -1741007046085821205
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

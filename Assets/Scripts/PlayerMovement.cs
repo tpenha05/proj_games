@@ -11,10 +11,19 @@ public class PlayerMovement : MonoBehaviour
     public Transform ledgeCheckUpper;
     public LayerMask wallLayer;
 
+    [Header("Audio")]
+    [SerializeField] private AudioSource audioSource;
+    [SerializeField] private AudioClip[] jumpSounds;
+    [SerializeField] private AudioClip[] climbSounds;
+    [SerializeField] private AudioClip[] landSounds;
+    [SerializeField] private float minPitch = 0.9f;
+    [SerializeField] private float maxPitch = 1.1f;
+    [SerializeField] private float landingSoundThreshold = -5f;
     Rigidbody2D rb;
     Animator anim;
 
     bool isGrounded;
+    bool wasGrounded;
     bool isFacingRight = true;
     bool isHanging = false;
     Vector2 moveInput;
@@ -38,13 +47,24 @@ public class PlayerMovement : MonoBehaviour
         rb.freezeRotation = true;
         rb.interpolation = RigidbodyInterpolation2D.Interpolate;
         defaultGravityScale = rb.gravityScale;
+        
+        if (audioSource == null)
+        {
+            audioSource = GetComponent<AudioSource>();
+            if (audioSource == null)
+            {
+                audioSource = gameObject.AddComponent<AudioSource>();
+                audioSource.playOnAwake = false;
+                audioSource.spatialBlend = 0f;
+                audioSource.volume = 0.8f;
+            }
+        }
     }
 
     void Update()
     {
         if (isHanging)
         {
-            // Só reage a espaço e shift
             if (InputManager.JumpWasPressed)
             {
                 StartCoroutine(ClimbLedge());
@@ -54,9 +74,8 @@ public class PlayerMovement : MonoBehaviour
                 DropFromLedge();
             }
 
-            return; // impede todo o resto
+            return;
         }
-
 
         HandleTimers();
         ReadInput();
@@ -66,6 +85,13 @@ public class PlayerMovement : MonoBehaviour
         HandleRoll();
         HandleDash();
         UpdateAnimator();
+        
+        if (isGrounded && !wasGrounded && rb.linearVelocity.y < landingSoundThreshold)
+        {
+            PlayLandSound();
+        }
+        
+        wasGrounded = isGrounded;
     }
 
     void FixedUpdate()
@@ -99,7 +125,7 @@ public class PlayerMovement : MonoBehaviour
         }
         else
         {
-            moveInput = Vector2.zero; // zera movimento horizontal se pendurado
+            moveInput = Vector2.zero;
         }
 
         if (InputManager.JumpWasPressed)
@@ -111,7 +137,6 @@ public class PlayerMovement : MonoBehaviour
         if (InputManager.RollWasPressed) TryRoll();
         if (InputManager.DashWasPressed) TryDash();
     }
-
 
     void CheckGround()
     {
@@ -145,7 +170,6 @@ public class PlayerMovement : MonoBehaviour
         rb.gravityScale = 0f;
         anim.SetTrigger("LedgeHold");
 
-        // Ajuste fino da posição do personagem
         Vector3 hangOffset = new Vector3(isFacingRight ? -0.2f : 0.2f, -0.3f, 0f);
         transform.position += hangOffset;
     }
@@ -153,6 +177,7 @@ public class PlayerMovement : MonoBehaviour
     IEnumerator ClimbLedge()
     {
         anim.SetTrigger("LedgeClimb");
+        PlayClimbSound();
 
         Vector3 startPos = transform.position;
         Vector3 targetPos = startPos + new Vector3(isFacingRight ? 0.75f : -0.75f, 0.8f, 0.25f);
@@ -173,7 +198,6 @@ public class PlayerMovement : MonoBehaviour
         transform.position = targetPos;
         rb.gravityScale = defaultGravityScale;
 
-        // Agora sim, encerrou a subida
         isHanging = false;
     }
 
@@ -193,6 +217,8 @@ public class PlayerMovement : MonoBehaviour
             rb.linearVelocity = new(rb.linearVelocity.x, 0f);
             rb.AddForce(Vector2.up * MoveStats.JumpForce, ForceMode2D.Impulse);
             anim.SetTrigger("Jump");
+            
+            PlayJumpSound();
         }
     }
 
@@ -276,6 +302,38 @@ public class PlayerMovement : MonoBehaviour
         anim.SetBool("isRunning", Mathf.Abs(rb.linearVelocity.x) > MoveStats.WalkSpeed + 0.1f);
         anim.SetBool("isWalking", Mathf.Abs(rb.linearVelocity.x) > 0.1f &&
                                   Mathf.Abs(rb.linearVelocity.x) <= MoveStats.WalkSpeed + 0.1f);
+    }
+    
+    private void PlayJumpSound()
+    {
+        if (jumpSounds == null || jumpSounds.Length == 0 || audioSource == null)
+            return;
+            
+        AudioClip soundToPlay = jumpSounds[Random.Range(0, jumpSounds.Length)];
+        audioSource.pitch = Random.Range(minPitch, maxPitch);
+        audioSource.PlayOneShot(soundToPlay);
+    }
+    
+    private void PlayClimbSound()
+    {
+        if (climbSounds == null || climbSounds.Length == 0 || audioSource == null)
+            return;
+            
+        AudioClip soundToPlay = climbSounds[Random.Range(0, climbSounds.Length)];
+        audioSource.pitch = Random.Range(minPitch, maxPitch);
+        audioSource.PlayOneShot(soundToPlay);
+    }
+    
+    private void PlayLandSound()
+    {
+        if (landSounds == null || landSounds.Length == 0 || audioSource == null)
+            return;
+            
+        AudioClip soundToPlay = landSounds[Random.Range(0, landSounds.Length)];
+        
+        float landingIntensity = Mathf.Clamp01(Mathf.Abs(rb.linearVelocity.y) / 20f);
+        audioSource.pitch = Random.Range(minPitch, maxPitch);
+        audioSource.PlayOneShot(soundToPlay, Mathf.Lerp(0.5f, 1.0f, landingIntensity));
     }
 
     void OnDrawGizmosSelected()
