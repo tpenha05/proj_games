@@ -1301,8 +1301,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 88689411349f15845ada09333f4c2a80, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  activeCheckpoint: {fileID: 0}
   spawnCheckpoint: {fileID: 0}
+  activeCheckpoint: {fileID: 0}
 --- !u!4 &616886127
 Transform:
   m_ObjectHideFlags: 0
@@ -2501,7 +2501,7 @@ ParticleSystem:
       serializedVersion: 2
       minMaxState: 0
       minColor: {r: 1, g: 1, b: 1, a: 1}
-      maxColor: {r: 1, g: 0.93537736, b: 0.3537736, a: 1}
+      maxColor: {r: 0, g: 0, b: 0, a: 1}
       maxGradient:
         serializedVersion: 2
         key0: {r: 1, g: 1, b: 1, a: 1}
@@ -3148,7 +3148,7 @@ ParticleSystem:
     rateOverTime:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 15
+      scalar: 2.5
       minScalar: 10
       maxCurve:
         serializedVersion: 2
@@ -7061,7 +7061,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3964bda1ee818044186b4152358bebd0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lightColor: {r: 1, g: 0.9372549, b: 0.3529412, a: 1}
+  lightColor: {r: 0, g: 0, b: 0, a: 1}
   minIntensity: 0.2
   maxIntensity: 0.9
   pulseSpeed: 2
@@ -7326,6 +7326,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gameOverPanel: {fileID: 1210463467}
   runesText: {fileID: 326344081}
+  respawnButton: {fileID: 0}
+  mainMenuButton: {fileID: 0}
 --- !u!114 &1210463469
 MonoBehaviour:
   m_ObjectHideFlags: 0
