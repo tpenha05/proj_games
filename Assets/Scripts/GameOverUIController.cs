@@ -36,8 +36,6 @@ public class GameOverUIController : MonoBehaviour
         // Retoma o jogo se estiver pausado
         Time.timeScale = 1f;
         
-        // Reseta as runas
-        PlayerScore.ResetRunas();
 
         // Oculta a UI
         gameOverPanel.SetActive(false);
@@ -52,6 +50,6 @@ public class GameOverUIController : MonoBehaviour
         Time.timeScale = 1f;
         
         // Carrega a cena do menu principal (ajuste o índice conforme necessário)
-        SceneManager.LoadScene(2);
+        SceneManager.LoadScene(0);
     }
 }
