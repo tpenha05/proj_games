@@ -81,14 +81,14 @@ public class CheckpointController : MonoBehaviour
         if (isSpawn)
         {
             desiredText = (CheckpointManager.I.activeCheckpoint != null)
-                ? "Teleport [M]"
-                : "Needs an activated totem";
+                ? "Teleportar [M]"
+                : "Necessita de um totem ativado";
         }
         else
         {
             desiredText = (CheckpointManager.I.activeCheckpoint == this)
-                ? "Teleport [M]"
-                : "Activate [M]";
+                ? "Teleportar [M]"
+                : "Ativar [M]";
         }
 
         if (desiredText != lastUIText)
