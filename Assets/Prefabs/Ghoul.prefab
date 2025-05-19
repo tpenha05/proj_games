@@ -537,5 +537,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1341b7a8158aea14d947b4ad5fb3db56, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 5
+  maxHealth: 4
   hitClip: {fileID: 8300000, guid: 04496aa957a446542a1a49148de5488e, type: 3}
+  coinPrefab: {fileID: 7831358277770686865, guid: 9a7841ac63d30da49ade51eb2f58478e, type: 3}
+  coinAmount: 1
