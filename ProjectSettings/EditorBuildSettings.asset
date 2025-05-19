@@ -11,6 +11,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Oficial/Floresta Baixa.unity
     guid: 89d1301ce54009b44ac126d77858183b
+  - enabled: 1
+    path: Assets/Scenes/Oficial/MainMenu.unity
+    guid: 66a4a40937a8eec4c9f712b5d070c998
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 60aad9f7d37fb1545af6e67061191bf5, type: 3}
   m_UseUCBPForAssetBundles: 0

@@ -13,6 +13,7 @@ public class PlayerHealth : MonoBehaviour
     private Vector3 initialPosition;
     
     private bool isInvulnerable = false;
+    private bool isDead = false;
     
     public float invulnerabilityTime = 1.0f;
     private float invulnerabilityTimer = 0f;
@@ -25,6 +26,10 @@ public class PlayerHealth : MonoBehaviour
         anim = GetComponent<Animator>();
         playerMovement = GetComponent<PlayerMovement>();
         initialPosition = transform.position;
+        
+        // Encontra o GameOverUIController se não foi atribuído
+        if (gameOverUIController == null)
+            gameOverUIController = FindObjectOfType<GameOverUIController>();
     }
 
     void Update()
@@ -43,6 +48,7 @@ public class PlayerHealth : MonoBehaviour
             }
         }
     }
+    
     public void RestartAtCheckpoint()
     {
         if (CheckpointManager.I.activeCheckpoint != null)
@@ -53,13 +59,11 @@ public class PlayerHealth : MonoBehaviour
         {
             transform.position = CheckpointManager.I.spawnCheckpoint.transform.position;
         }
-
     }
-
 
     public void TakeDamage()
     {
-        if (isInvulnerable) return;
+        if (isInvulnerable || isDead) return;
 
         if (playerMovement != null && (IsPlayerRolling() || IsPlayerDashing()))
         {
@@ -84,25 +88,45 @@ public class PlayerHealth : MonoBehaviour
 
         if (currentHealth == 0)
         {
-            anim.SetTrigger("Death");
-            if (playerMovement != null)
-                playerMovement.enabled = false;
-
-            if (CheckpointManager.I.activeCheckpoint != null)
-                RespawnData.I.checkpointPosition = CheckpointManager.I.activeCheckpoint.transform.position;
-            else if (CheckpointManager.I.spawnCheckpoint != null)
-                RespawnData.I.checkpointPosition = CheckpointManager.I.spawnCheckpoint.transform.position;
-
-            StartCoroutine(RestartScene());
+            Die();
         }
-
     }
-    private IEnumerator RestartScene()
+    
+    public void Die()
     {
-        yield return new WaitForSeconds(1.5f); // tempo para tocar a animação de morte, se quiser
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        isDead = true;
+        anim.SetTrigger("Death");
+        
+        if (playerMovement != null)
+            playerMovement.enabled = false;
+
+        if (CheckpointManager.I.activeCheckpoint != null)
+            RespawnData.I.checkpointPosition = CheckpointManager.I.activeCheckpoint.transform.position;
+        else if (CheckpointManager.I.spawnCheckpoint != null)
+            RespawnData.I.checkpointPosition = CheckpointManager.I.spawnCheckpoint.transform.position;
+
+        // Mostra a tela de Game Over após um pequeno delay para a animação de morte
+        StartCoroutine(ShowGameOverScreen());
+    }
+    
+    private IEnumerator ShowGameOverScreen()
+    {
+        yield return new WaitForSeconds(1.5f); // Tempo para a animação de morte tocar
+        
+        // Mostra a tela de Game Over com a quantidade de runas do jogador
+        if (gameOverUIController != null)
+        {
+            int currentRunes = PlayerScore.GetRunas(); // Supondo que esta função exista
+            gameOverUIController.ShowGameOver(currentRunes);
+        }
     }
 
+    // Método removido pois não reiniciamos mais a cena
+    // private IEnumerator RestartScene()
+    // {
+    //     yield return new WaitForSeconds(1.5f);
+    //     SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+    // }
     
     private bool IsPlayerRolling()
     {
@@ -135,8 +159,8 @@ public class PlayerHealth : MonoBehaviour
     }
 
     public void Revive()
-
     {
+        isDead = false;
         currentHealth = hearts.Length;
 
         if (CheckpointManager.I.activeCheckpoint != null)
@@ -159,7 +183,6 @@ public class PlayerHealth : MonoBehaviour
 
         isInvulnerable = false;
     }
-
     
     public void Heal()
     {
