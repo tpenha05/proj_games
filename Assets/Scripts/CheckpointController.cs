@@ -4,7 +4,7 @@ using TMPro;
 
 public class CheckpointController : MonoBehaviour
 {
-    [Header("Sprites e timings")]
+    [Header("Sprites e tempo de animação")]
     public Sprite offSprite;
     public Sprite[] activateSprites;
     public Sprite[] onSprites;
@@ -12,18 +12,18 @@ public class CheckpointController : MonoBehaviour
 
     [Header("Referências")]
     public bool isSpawn = false;
-    public Transform arrow;
+    public Transform arrow; // seta no spawn
     public GameObject uiCanvas;
+
     private TextMeshProUGUI uiText;
     private SpriteRenderer sr;
     private Coroutine idleLoopCoroutine;
     private bool playerNearby;
     private Transform player;
+    private string lastUIText = "";
 
     [Header("Debug")]
     [ReadOnly] public bool isActiveCheckpoint;
-
-    private string lastUIText = "";
 
     void Awake()
     {
@@ -37,23 +37,27 @@ public class CheckpointController : MonoBehaviour
 
     void Start()
     {
-        if (isSpawn) CheckpointManager.I.RegisterSpawn(this);
-        else sr.sprite = offSprite;
+        if (isSpawn)
+        {
+            CheckpointManager.I.RegisterSpawn(this);
+        }
+        else
+        {
+            sr.sprite = offSprite;
+        }
     }
 
     void Update()
     {
         if (!playerNearby) return;
 
+        // Ação com tecla [M]
         if (Input.GetKeyDown(KeyCode.M))
         {
             if (isSpawn)
             {
-                var active = CheckpointManager.I.activeCheckpoint;
-                if (active != null)
-                {
-                    player.position = active.transform.position;
-                }
+                if (CheckpointManager.I.activeCheckpoint != null)
+                    player.position = CheckpointManager.I.activeCheckpoint.transform.position;
             }
             else
             {
@@ -64,46 +68,52 @@ public class CheckpointController : MonoBehaviour
             }
         }
 
-        // Atualiza texto da UI dinamicamente
-        if (uiCanvas.activeSelf)
+        UpdateUIText();
+        UpdateArrowDirection();
+    }
+
+    private void UpdateUIText()
+    {
+        if (!uiCanvas.activeSelf) return;
+
+        string desiredText = "";
+
+        if (isSpawn)
         {
-            string desiredText = "";
-
-            if (isSpawn)
-            {
-                desiredText = (CheckpointManager.I.activeCheckpoint != null)
-                    ? "Teleport [M]"
-                    : "Needs an activated totem";
-            }
-            else
-            {
-                desiredText = (CheckpointManager.I.activeCheckpoint == this)
-                    ? "Teleport [M]"
-                    : "Activate [M]";
-            }
-
-            if (desiredText != lastUIText)
-            {
-                uiText.text = desiredText;
-                lastUIText = desiredText;
-            }
+            desiredText = (CheckpointManager.I.activeCheckpoint != null)
+                ? "Teleport [M]"
+                : "Needs an activated totem";
+        }
+        else
+        {
+            desiredText = (CheckpointManager.I.activeCheckpoint == this)
+                ? "Teleport [M]"
+                : "Activate [M]";
         }
 
-        // Atualiza seta do spawn
-        if (isSpawn && arrow != null)
+        if (desiredText != lastUIText)
         {
-            var active = CheckpointManager.I.activeCheckpoint;
-            if (active != null)
-            {
-                arrow.gameObject.SetActive(true);
-                Vector3 dir = (active.transform.position - arrow.position).normalized;
-                float ang = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
-                arrow.rotation = Quaternion.Euler(0, 0, ang - 90f);
-            }
-            else
-            {
-                arrow.gameObject.SetActive(false);
-            }
+            uiText.text = desiredText;
+            lastUIText = desiredText;
+        }
+    }
+
+    private void UpdateArrowDirection()
+    {
+        if (!isSpawn || arrow == null) return;
+
+        var active = CheckpointManager.I.activeCheckpoint;
+
+        if (active != null)
+        {
+            arrow.gameObject.SetActive(true);
+            Vector3 dir = (active.transform.position - arrow.position).normalized;
+            float ang = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
+            arrow.rotation = Quaternion.Euler(0, 0, ang - 90f);
+        }
+        else
+        {
+            arrow.gameObject.SetActive(false);
         }
     }
 

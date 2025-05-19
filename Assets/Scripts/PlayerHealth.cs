@@ -1,4 +1,6 @@
+using System.Collections;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerHealth : MonoBehaviour
 {
@@ -29,7 +31,7 @@ public class PlayerHealth : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.H))
         {
-            TakeDamage();
+            Revive();
         }
         
         if (isInvulnerable)
@@ -41,22 +43,35 @@ public class PlayerHealth : MonoBehaviour
             }
         }
     }
+    public void RestartAtCheckpoint()
+    {
+        if (CheckpointManager.I.activeCheckpoint != null)
+        {
+            transform.position = CheckpointManager.I.activeCheckpoint.transform.position;
+        }
+        else if (CheckpointManager.I.spawnCheckpoint != null)
+        {
+            transform.position = CheckpointManager.I.spawnCheckpoint.transform.position;
+        }
+
+    }
+
 
     public void TakeDamage()
     {
         if (isInvulnerable) return;
-        
+
         if (playerMovement != null && (IsPlayerRolling() || IsPlayerDashing()))
         {
             return;
         }
-        
+
         if (currentHealth <= 0) return;
 
         currentHealth--;
 
         anim.SetTrigger("Hit");
-        
+
         isInvulnerable = true;
         invulnerabilityTimer = invulnerabilityTime;
 
@@ -73,22 +88,34 @@ public class PlayerHealth : MonoBehaviour
             if (playerMovement != null)
                 playerMovement.enabled = false;
 
-            gameOverUIController.ShowGameOver(PlayerScore.runas);
+            if (CheckpointManager.I.activeCheckpoint != null)
+                RespawnData.I.checkpointPosition = CheckpointManager.I.activeCheckpoint.transform.position;
+            else if (CheckpointManager.I.spawnCheckpoint != null)
+                RespawnData.I.checkpointPosition = CheckpointManager.I.spawnCheckpoint.transform.position;
+
+            StartCoroutine(RestartScene());
         }
+
     }
+    private IEnumerator RestartScene()
+    {
+        yield return new WaitForSeconds(1.5f); // tempo para tocar a animação de morte, se quiser
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+    }
+
     
     private bool IsPlayerRolling()
     {
-        System.Reflection.FieldInfo isRollingField = 
-            typeof(PlayerMovement).GetField("isRolling", 
-                System.Reflection.BindingFlags.NonPublic | 
+        System.Reflection.FieldInfo isRollingField =
+            typeof(PlayerMovement).GetField("isRolling",
+                System.Reflection.BindingFlags.NonPublic |
                 System.Reflection.BindingFlags.Instance);
-                
+
         if (isRollingField != null)
         {
             return (bool)isRollingField.GetValue(playerMovement);
         }
-        
+
         return false;
     }
     
@@ -108,10 +135,18 @@ public class PlayerHealth : MonoBehaviour
     }
 
     public void Revive()
+
     {
         currentHealth = hearts.Length;
 
-        transform.position = initialPosition;
+        if (CheckpointManager.I.activeCheckpoint != null)
+        {
+            transform.position = CheckpointManager.I.activeCheckpoint.transform.position;
+        }
+        else if (CheckpointManager.I.spawnCheckpoint != null)
+        {
+            transform.position = CheckpointManager.I.spawnCheckpoint.transform.position;
+        }
 
         foreach (var heart in hearts)
         {
@@ -121,9 +156,10 @@ public class PlayerHealth : MonoBehaviour
 
         if (playerMovement != null)
             playerMovement.enabled = true;
-            
+
         isInvulnerable = false;
     }
+
     
     public void Heal()
     {
