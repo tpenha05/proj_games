@@ -405,7 +405,7 @@ AudioSource:
   m_audioClip: {fileID: 0}
   m_Resource: {fileID: 0}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.2
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -507,7 +507,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 64
   audioSource: {fileID: 9154808983874866723}
-  attackSound: {fileID: 8300000, guid: 348269ddb7656db4fbfb2f69825d664a, type: 3}
+  attackSound: {fileID: 8300000, guid: bc5b4edb34967854d9aeedbcf66ac798, type: 3}
   attackRange: 2
   attackCooldown: 1
   attackDelay: 2.65

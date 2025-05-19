@@ -95,15 +95,14 @@ public class EnemyAttack : MonoBehaviour
         transform.localScale = scale;
     }
 
+
     void PerformAttack()
     {
         if (enemyHealth != null && enemyHealth.IsDead())
-        return;
+            return;
 
         if (Time.time < lastAttackTime) return;
 
-
-        // Verifica se o attackPoint existe antes de usar
         if (attackPoint == null) return;
 
         Collider2D hitPlayer = Physics2D.OverlapCircle(attackPoint.position, attackRange, playerLayer);
@@ -112,7 +111,11 @@ public class EnemyAttack : MonoBehaviour
             PlayerHealth playerHealth = player.GetComponent<PlayerHealth>();
             if (playerHealth != null)
                 playerHealth.TakeDamage();
+
+            // 🔊 TOCA O SOM AQUI
+            PlayAttackSound();
         }
+
         isAttacking = false;
         lastAttackTime = Time.time;
     }

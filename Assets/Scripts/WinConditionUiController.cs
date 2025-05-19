@@ -8,7 +8,6 @@ public class WinConditionUiController : MonoBehaviour
     {
         Debug.Log("Retornando ao menu principal...");
         
-        // Carrega a cena do menu principal (ajuste o índice conforme necessário)
         SceneManager.LoadScene(0);
     }
 }
