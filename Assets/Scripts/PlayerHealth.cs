@@ -112,7 +112,7 @@ public class PlayerHealth : MonoBehaviour
         if (gameOverUIController != null)
         {
             int currentRunes = PlayerScore.GetRunas(); // Supondo que esta função exista
-            gameOverUIController.ShowGameOver(currentRunes);
+            gameOverUIController.ShowGameOver();
         }
     }
 
