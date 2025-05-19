@@ -100,11 +100,6 @@ public class PlayerHealth : MonoBehaviour
         if (playerMovement != null)
             playerMovement.enabled = false;
 
-        if (CheckpointManager.I.activeCheckpoint != null)
-            RespawnData.I.checkpointPosition = CheckpointManager.I.activeCheckpoint.transform.position;
-        else if (CheckpointManager.I.spawnCheckpoint != null)
-            RespawnData.I.checkpointPosition = CheckpointManager.I.spawnCheckpoint.transform.position;
-
         // Mostra a tela de Game Over após um pequeno delay para a animação de morte
         StartCoroutine(ShowGameOverScreen());
     }
