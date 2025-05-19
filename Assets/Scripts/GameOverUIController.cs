@@ -6,7 +6,6 @@ using UnityEngine.SceneManagement;
 public class GameOverUIController : MonoBehaviour
 {
     public GameObject gameOverPanel;
-    public TextMeshProUGUI runesText;
     
     // Botões adicionais (se quiser)
     public Button respawnButton;
@@ -24,9 +23,8 @@ public class GameOverUIController : MonoBehaviour
             mainMenuButton.onClick.AddListener(ReturnToMainMenu);
     }
 
-    public void ShowGameOver(int runes)
+    public void ShowGameOver()
     {
-        runesText.text = runes.ToString();
         gameOverPanel.SetActive(true);
         
         // Opcional: pausar o jogo
