@@ -271,6 +271,7 @@ GameObject:
   - component: {fileID: 8799369778172987938}
   - component: {fileID: 8044799691438964256}
   - component: {fileID: 3495185143127062568}
+  - component: {fileID: 2128018272304116750}
   m_Layer: 6
   m_Name: PlayerSwordMaster
   m_TagString: Player
@@ -420,6 +421,16 @@ MonoBehaviour:
   wallLayer:
     serializedVersion: 2
     m_Bits: 8
+  audioSource: {fileID: 2128018272304116750}
+  jumpSounds:
+  - {fileID: 8300000, guid: b62759fe56cac4b48b454b9a4cfba2a2, type: 3}
+  climbSounds:
+  - {fileID: 8300000, guid: 97165b4730b2f324eaafbd4c66c31d6b, type: 3}
+  landSounds:
+  - {fileID: 8300000, guid: b2d8d43aa35141d4986099d13b93e196, type: 3}
+  minPitch: 0.9
+  maxPitch: 1.1
+  landingSoundThreshold: -5
 --- !u!61 &8799369778172987938
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -480,6 +491,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   lightAttackCooldown: 0.5
   powerCooldown: 1.5
+  slashSounds:
+  - {fileID: 8300000, guid: f453defb31c8f9f499809e165f990023, type: 3}
+  powerSlashSounds:
+  - {fileID: 8300000, guid: 1abaed23593c7ea44aad4b70ed0610a8, type: 3}
+  audioSource: {fileID: 2128018272304116750}
+  minPitch: 0.9
+  maxPitch: 1.1
   attackHitbox: {fileID: 1793075357616545574}
 --- !u!114 &3495185143127062568
 MonoBehaviour:
@@ -500,7 +518,105 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   explosionFXPrefab: {fileID: 5217398167752750548, guid: a575857e9228f784b9f31f052f7b2357, type: 3}
+  invulnerabilityTime: 1
   gameOverUIController: {fileID: 0}
+--- !u!82 &2128018272304116750
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5215786211372471057}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_Resource: {fileID: 0}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &5753677686255922995
 GameObject:
   m_ObjectHideFlags: 0
