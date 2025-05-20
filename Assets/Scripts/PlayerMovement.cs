@@ -63,6 +63,9 @@ public class PlayerMovement : MonoBehaviour
 
     void Update()
     {
+        if (CompareTag("texto"))
+            return;
+
         if (isHanging)
         {
             if (InputManager.JumpWasPressed)
