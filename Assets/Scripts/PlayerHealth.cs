@@ -9,6 +9,8 @@ public class PlayerHealth : MonoBehaviour
     public GameObject explosionFXPrefab;
 
     public int coinCount = 0;
+    public static int coinCountStatic = 0;
+
     public TextMeshProUGUI coinText; // arraste aqui o Text do Canvas
 
     private int currentHealth;
@@ -43,8 +45,14 @@ public class PlayerHealth : MonoBehaviour
             coinText.text = "" + coinCount;
     }
 
+    public static int GetCoins()
+    {
+        return coinCountStatic;
+    }
+
     void Update()
     {
+        coinCountStatic = coinCount;
         UpdateCoinText();
         
         if (isInvulnerable)
@@ -56,7 +64,7 @@ public class PlayerHealth : MonoBehaviour
             }
         }
     }
-    
+
     public void RestartAtCheckpoint()
     {
         if (CheckpointManager.I.activeCheckpoint != null)

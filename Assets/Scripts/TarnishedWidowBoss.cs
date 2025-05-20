@@ -1,3 +1,5 @@
+// TarnishedWidowBoss.cs
+// Controlador de comportamento do chefe 'Tarnished Widow'
 using System.Collections;
 using UnityEngine;
 
@@ -6,11 +8,17 @@ public class TarnishedWidowBoss : MonoBehaviour
 {
     /* ─────────── INSPECTOR ─────────── */
     [Header("Referências")]
+    // Referência ao transform do jogador
     public Transform player;
+    // Ponto auxiliar para verificar se o chefe está no chão
     public Transform groundCheck;
+    // Componente responsável pelo ataque com língua
     public TongueHitbox tongue;
+    // Componente responsável pelo ataque corpo-a-corpo
     public MeleeHitbox meleeHitbox;
+    // Prefab da sombra utilizada durante ataque de salto
     public GameObject shadowPrefab;
+    // Camada considerada como solo (para detecção de colisão)
     public LayerMask groundLayer;
 
     [Header("Movimento")]
@@ -24,27 +32,40 @@ public class TarnishedWidowBoss : MonoBehaviour
     public float attackInterval = 1f;
     [Tooltip("Tempo em Idle após completar um combo")]
     public float idlePause = 2f;
+    // Sequências de triggers de animação que compõem cada combo
     private readonly string[][] combos = new string[][] {
         new string[]{ "AttackMelee", "AttackFar" },
         new string[]{ "AttackMelee", "AttackMelee", "AttackFar" },
         new string[]{ "AttackMelee" },
+        new string[]{ "AttackMelee", "AttackMelee" },
         new string[]{ "AttackFar" },
+        new string[]{ "AttackFar", "AttackMelee" },
         new string[]{ "AttackFar", "AttackFar", "AttackMelee" }
     };
 
     [Header("Jump-Attack")]
+    // Tempo até reaparecer após sumir
     public float vanishTime = 0.6f;
+    // Altura do salto antes de cair sobre o jogador
     public float dropHeight = 6f;
+    // Raio de impacto do smash ao aterrissar
     public float smashRadius = 2.4f;
 
     [Header("Cooldowns")]
+    // Intervalo mínimo entre ataques de salto
     public float jumpCooldown = 20f;
+    // Intervalo mínimo entre ataques à distância
     public float farAttackCooldown = 5f;
 
     [Header("Vida")]
+    // Vida máxima do chefe
     public int maxHealth = 10;
 
-    // AnimationEvent proxies
+    [Header("Condição de Vitória")]
+    [Tooltip("Referência ao controlador de vitória na cena")]
+    public WinConditionController winController;
+
+    // Métodos invocados por eventos de animação para habilitar/desabilitar colisores
     public void EnableHitbox()  { if (tongue != null) tongue.EnableHitbox(); }
     public void DisableHitbox() { if (tongue != null) tongue.DisableHitbox(); }
     public void EnableMelee()   { if (meleeHitbox != null) meleeHitbox.EnableMelee(); }
@@ -56,16 +77,19 @@ public class TarnishedWidowBoss : MonoBehaviour
     private SpriteRenderer sr;
     private Collider2D[] cols;
 
+    // Estado de direção (true = olhando para a direita)
     private bool facingRight;
     private int currentHealth;
     private bool isDead;
 
+    // Controle de execução de combos
     private bool isPerformingCombo;
     private int comboCounter;
+    // Timestamp dos últimos ataques especiais
     private float lastJumpTime = -Mathf.Infinity;
     private float lastFarAttackTime = -Mathf.Infinity;
 
-    /* ─────────── UNITY ─────────── */
+    // Inicialização de referências e variáveis
     void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -73,42 +97,56 @@ public class TarnishedWidowBoss : MonoBehaviour
         sr = GetComponent<SpriteRenderer>();
         cols = GetComponents<Collider2D>();
         currentHealth = maxHealth;
+        // Detecta escala inicial para definir direção
         facingRight = transform.localScale.x > 0;
+
+        // Busca automatica do controlador de vitória se não estiver atribuído
+        if (winController == null)
+        {
+            winController = FindObjectOfType<WinConditionController>();
+            if (winController == null)
+                Debug.LogWarning("WinConditionController não encontrado na cena!");
+        }
     }
 
+    // Atualizado a cada frame para lidar com animações e iniciar combos
     void Update()
     {
         if (isDead) return;
 
-        // Atualiza animações de movimento
+        // Atualiza parâmetros de animação
         anim.SetFloat("speed", Mathf.Abs(rb.linearVelocity.x));
         anim.SetBool("isGrounded", IsGrounded());
 
-        // Inicia combo se não estiver executando
+        // Se não estiver executando um combo, inicia a rotina
         if (!isPerformingCombo)
             StartCoroutine(PerformComboRoutine());
     }
 
-    /* ─────────── COMBO ROUTINE ─────────── */
+    // Rotina de execução de um combo completo
     IEnumerator PerformComboRoutine()
     {
+        if (isDead) yield break;
         isPerformingCombo = true;
 
-        // Persegue enquanto estiver fora do comboRange
+        // Persegue jogador até ficar dentro do alcance de combo
         while (Vector2.Distance(transform.position, player.position) > comboRange)
         {
+            if (isDead) yield break;
             WalkTowardsPlayer();
             yield return null;
         }
+        // Para o movimento antes de atacar
         rb.linearVelocity = Vector2.zero;
 
-        // Executa o combo atual
+        // Seleciona e executa o combo atual
         string[] combo = combos[comboCounter % combos.Length];
         foreach (var trigger in combo)
         {
+            if (isDead) yield break;
+            // Respeita cooldown do ataque à distância
             if (trigger == "AttackFar" && Time.time - lastFarAttackTime < farAttackCooldown)
                 continue;
-
             if (trigger == "AttackFar")
                 lastFarAttackTime = Time.time;
 
@@ -117,88 +155,133 @@ public class TarnishedWidowBoss : MonoBehaviour
         }
         comboCounter++;
 
-        // Idle pause após combo
+        if (isDead) yield break;
+        // Pausa após o combo
         yield return new WaitForSeconds(idlePause);
 
-        // Jump-Attack a cada 3 ou 4 combos
-        if (comboCounter % 3 == 0 || comboCounter % 4 == 0)
+        // A cada 3 ou 4 combos, realiza um ataque de salto
+        if (!isDead && (comboCounter % 3 == 0 || comboCounter % 4 == 0))
         {
             StartJumpAttack();
-            yield return new WaitUntil(IsGrounded);
+            // Aguarda até aterrissar
+            yield return new WaitUntil(() => IsGrounded() || isDead);
+            if (isDead) yield break;
             yield return new WaitForSeconds(idlePause);
         }
 
         isPerformingCombo = false;
     }
 
-    /* ─────────── MOVIMENTO ─────────── */
+    // Muda velocidade para perseguir jogador
     void WalkTowardsPlayer()
     {
         FacePlayer();
         rb.linearVelocity = new Vector2((facingRight ? 1 : -1) * walkSpeed, rb.linearVelocity.y);
     }
 
-    /* ─────────── JUMP ATTACK (TELEPORT) ─────────── */
+    // Inicia ataque de salto se condições forem atendidas
     public void StartJumpAttack()
     {
-        if (!IsGrounded() || Time.time - lastJumpTime < jumpCooldown)
+        if (isDead || !IsGrounded() || Time.time - lastJumpTime < jumpCooldown)
             return;
 
         lastJumpTime = Time.time;
         StartCoroutine(JumpAttackRoutine());
     }
 
+    // Sequência de ataque de salto: some, reaparece acima do jogador e cai
     IEnumerator JumpAttackRoutine()
     {
         anim.SetTrigger("JumpAttack");
         yield return new WaitForSeconds(attackInterval);
 
-        Vector3 targetPos = player.position;
+        Vector3 target = player.position;
+        // Desabilita colisores e sprite para sumir
         ToggleColliders(false);
         sr.enabled = false;
-        GameObject shadow = shadowPrefab ? Instantiate(shadowPrefab, new Vector3(targetPos.x, targetPos.y, transform.position.z), Quaternion.identity) : null;
+        if (shadowPrefab)
+            Instantiate(shadowPrefab, new Vector3(target.x, target.y, transform.position.z), Quaternion.identity);
 
         yield return new WaitForSeconds(vanishTime);
 
-        transform.position = new Vector3(targetPos.x, targetPos.y + dropHeight, transform.position.z);
+        // Reposiciona acima do jogador e reaparece
+        transform.position = new Vector3(target.x, target.y + dropHeight, transform.position.z);
         FacePlayer();
         ToggleColliders(true);
         sr.enabled = true;
-        if (shadow) Destroy(shadow);
 
         anim.SetTrigger("DoAttackFall");
-        yield return new WaitUntil(IsGrounded);
+        // Aguarda aterrissagem
+        yield return new WaitUntil(() => IsGrounded() || isDead);
     }
 
+    // Efeito de smash no chão, causa dano ao jogador se estiver dentro do raio
     public void DoGroundSmash()
     {
+        if (isDead) return;
         Collider2D hit = Physics2D.OverlapCircle(transform.position, smashRadius, LayerMask.GetMask("Player"));
-        if (hit) hit.GetComponent<PlayerHealth>()?.TakeDamage();
+        hit?.GetComponent<PlayerHealth>()?.TakeDamage();
     }
 
-    /* ─────────── DANO & MORTE ─────────── */
+    // Recebe dano e verifica morte
     public void TakeDamage(int dmg)
     {
         if (isDead) return;
         currentHealth -= dmg;
         anim.SetTrigger("Hit");
-        if (currentHealth <= 0) Die();
+        if (currentHealth <= 0)
+            Die();
     }
 
+    // Sequência de morte do chefe
     void Die()
     {
         isDead = true;
-        anim.SetBool("isDead", true);
+
+        StopAllCoroutines();
+        anim.ResetTrigger("Hit");
+        anim.ResetTrigger("AttackMelee");
+        anim.ResetTrigger("AttackFar");
+        anim.ResetTrigger("JumpAttack");
+        anim.ResetTrigger("DoAttackFall");
+
+        anim.Play("Death", 0, 0f);
+
+        ToggleColliders(false);
         rb.linearVelocity = Vector2.zero;
         rb.bodyType = RigidbodyType2D.Kinematic;
-        ToggleColliders(false);
+
+        enabled = false;
+
+        Debug.Log("Boss morreu de vez!");
+
+        if (winController != null)
+            winController.isBossKilled = true;
     }
 
-    /* ─────────── UTILITIES ─────────── */
-    bool IsGrounded() => Physics2D.OverlapCircle(groundCheck.position, 0.05f, groundLayer);
-    void ToggleColliders(bool state) { foreach (var c in cols) c.enabled = state; }
-    void FacePlayer() { bool toR = player.position.x > transform.position.x; if (toR != facingRight) Flip(); }
-    void Flip() { facingRight = !facingRight; Vector3 s = transform.localScale; s.x *= -1; transform.localScale = s; }
+    bool IsGrounded()
+        => Physics2D.OverlapCircle(groundCheck.position, 0.05f, groundLayer);
+
+    void ToggleColliders(bool state)
+    {
+        foreach (var c in cols)
+            c.enabled = state;
+    }
+
+    void FacePlayer()
+    {
+        bool toRight = player.position.x > transform.position.x;
+        if (toRight != facingRight)
+            Flip();
+    }
+
+    void Flip()
+    {
+        facingRight = !facingRight;
+        Vector3 s = transform.localScale;
+        s.x *= -1;
+        transform.localScale = s;
+    }
 
     void OnDrawGizmosSelected()
     {
