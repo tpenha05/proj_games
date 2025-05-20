@@ -7,25 +7,41 @@ public class AttackHitbox : MonoBehaviour
     [SerializeField] private int lightDamage = 1;
     [SerializeField] private int powerDamage = 3;
 
-    private int      currentDamage;
+    private int currentDamage;
     private Collider2D hitbox;
+    private PlayerMovement playerMovement;
 
     void Awake()
     {
         hitbox = GetComponent<Collider2D>();
         hitbox.enabled = false;
+        
+        // Obter referência ao PlayerMovement
+        playerMovement = GetComponentInParent<PlayerMovement>();
+        if (playerMovement == null)
+        {
+            Debug.LogError("AttackHitbox: Não foi possível encontrar o componente PlayerMovement no parent!");
+        }
     }
 
     public void EnableLightHitbox()
     {
-        currentDamage = lightDamage;
-        hitbox.enabled = true;
+        // Só ativamos a hitbox se estiver no chão
+        if (playerMovement != null && playerMovement.isGrounded)
+        {
+            currentDamage = lightDamage;
+            hitbox.enabled = true;
+        }
     }
 
     public void EnablePowerHitbox()
     {
-        currentDamage = powerDamage;
-        hitbox.enabled = true;
+        // Só ativamos a hitbox se estiver no chão
+        if (playerMovement != null && playerMovement.isGrounded)
+        {
+            currentDamage = powerDamage;
+            hitbox.enabled = true;
+        }
     }
 
     public void DisableHitbox()

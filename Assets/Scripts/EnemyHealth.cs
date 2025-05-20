@@ -49,6 +49,9 @@ public class EnemyHealth : MonoBehaviour
         }
     }
 
+public GameObject coinPrefab; // Prefab da moeda a ser dropada
+public int coinAmount = 5;    // Quantidade de moedas dropadas
+
     private void Die()
     {
         isDead = true;
@@ -65,7 +68,19 @@ public class EnemyHealth : MonoBehaviour
         var shooter = GetComponent<EnemyShooter>();
         if (shooter != null)
             shooter.enabled = false;
-        Destroy(gameObject, 1.2f);
+
+        DropCoins();
+
+        Destroy(gameObject, 1.5f);
+    }
+
+    private void DropCoins()
+    {
+        for (int i = 0; i < coinAmount; i++)
+        {
+            Vector2 randomOffset = new Vector2(Random.Range(-0.5f, 0.5f), Random.Range(-0.5f, 0.5f));
+            Instantiate(coinPrefab, (Vector2)transform.position + randomOffset, Quaternion.identity);
+        }
     }
     public bool IsDead()
     {

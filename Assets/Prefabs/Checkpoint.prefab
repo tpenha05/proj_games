@@ -432,7 +432,9 @@ MonoBehaviour:
   - {fileID: 1133214215, guid: f5a04c2b6e8445745a1673f8254963a5, type: 3}
   frameTime: 0.1
   isSpawn: 0
+  arrow: {fileID: 0}
   uiCanvas: {fileID: 1376222726554801372}
+  isActiveCheckpoint: 0
 --- !u!58 &4997040330652754442
 CircleCollider2D:
   m_ObjectHideFlags: 0

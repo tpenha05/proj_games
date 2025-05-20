@@ -1,11 +1,15 @@
 using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using TMPro;
 
 public class PlayerHealth : MonoBehaviour
 {
     public GameObject[] hearts;
     public GameObject explosionFXPrefab;
+
+    public int coinCount = 0;
+    public TextMeshProUGUI coinText; // arraste aqui o Text do Canvas
 
     private int currentHealth;
     private Animator anim;
@@ -22,6 +26,7 @@ public class PlayerHealth : MonoBehaviour
 
     void Start()
     {
+        UpdateCoinText();
         currentHealth = hearts.Length;
         anim = GetComponent<Animator>();
         playerMovement = GetComponent<PlayerMovement>();
@@ -30,6 +35,12 @@ public class PlayerHealth : MonoBehaviour
         // Encontra o GameOverUIController se não foi atribuído
         if (gameOverUIController == null)
             gameOverUIController = FindObjectOfType<GameOverUIController>();
+    }
+
+    private void UpdateCoinText()
+    {
+        if (coinText != null)
+            coinText.text = "" + coinCount;
     }
 
     void Update()
@@ -137,19 +148,26 @@ public class PlayerHealth : MonoBehaviour
 
         return false;
     }
+
+
+    public void AddCoins(int amount)
+    {
+        coinCount += amount;
+        UpdateCoinText();
+    }
     
     private bool IsPlayerDashing()
     {
-        System.Reflection.FieldInfo isDashingField = 
-            typeof(PlayerMovement).GetField("isDashing", 
-                System.Reflection.BindingFlags.NonPublic | 
+        System.Reflection.FieldInfo isDashingField =
+            typeof(PlayerMovement).GetField("isDashing",
+                System.Reflection.BindingFlags.NonPublic |
                 System.Reflection.BindingFlags.Instance);
-                
+
         if (isDashingField != null)
         {
             return (bool)isDashingField.GetValue(playerMovement);
         }
-        
+
         return false;
     }
 

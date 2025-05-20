@@ -341,7 +341,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -710076127
   m_SortingLayer: 2
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: -7505785758952087195, guid: 9efd57239dc53aa4c8a3d43bca565e7f, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -431,6 +431,7 @@ MonoBehaviour:
   minPitch: 0.9
   maxPitch: 1.1
   landingSoundThreshold: -5
+  isGrounded: 0
 --- !u!61 &8799369778172987938
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -498,6 +499,8 @@ MonoBehaviour:
   audioSource: {fileID: 2128018272304116750}
   minPitch: 0.9
   maxPitch: 1.1
+  airAttackActivationDelay: 0.1
+  airAttackDuration: 0.2
   attackHitbox: {fileID: 1793075357616545574}
 --- !u!114 &3495185143127062568
 MonoBehaviour:

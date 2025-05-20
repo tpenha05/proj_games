@@ -405,7 +405,7 @@ AudioSource:
   m_audioClip: {fileID: 0}
   m_Resource: {fileID: 0}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.2
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -507,7 +507,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 64
   audioSource: {fileID: 9154808983874866723}
-  attackSound: {fileID: 8300000, guid: 348269ddb7656db4fbfb2f69825d664a, type: 3}
+  attackSound: {fileID: 8300000, guid: bc5b4edb34967854d9aeedbcf66ac798, type: 3}
   attackRange: 2
   attackCooldown: 1
   attackDelay: 2.65
@@ -537,5 +537,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1341b7a8158aea14d947b4ad5fb3db56, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 5
+  maxHealth: 4
   hitClip: {fileID: 8300000, guid: 04496aa957a446542a1a49148de5488e, type: 3}
+  coinPrefab: {fileID: 7831358277770686865, guid: 9a7841ac63d30da49ade51eb2f58478e, type: 3}
+  coinAmount: 1

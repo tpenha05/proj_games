@@ -341,7 +341,7 @@ MonoBehaviour:
   ghoulPrefab: {fileID: 7180761207616070243, guid: 20714e1c1f0c54547828fdb5733a03d8, type: 3}
   spawnRadius: {fileID: 5887998556827184234}
   player: {fileID: 0}
-  maxGhouls: 5
+  maxGhouls: 3
 --- !u!82 &7467475141858858131
 AudioSource:
   m_ObjectHideFlags: 0
@@ -465,6 +465,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 3
   hitClip: {fileID: 8300000, guid: 7a53dc373fcb71545a3cdc6e5ee2e31a, type: 3}
+  coinPrefab: {fileID: 7831358277770686865, guid: 9a7841ac63d30da49ade51eb2f58478e, type: 3}
+  coinAmount: 1
 --- !u!1 &7922082750043402620
 GameObject:
   m_ObjectHideFlags: 0
@@ -492,8 +494,8 @@ Transform:
   m_GameObject: {fileID: 7922082750043402620}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.002, y: -0.226, z: 0}
-  m_LocalScale: {x: 1.021802, y: 0.011544336, z: 0.20718656}
+  m_LocalPosition: {x: 0.51128, y: -0.2248, z: 0}
+  m_LocalScale: {x: 0.84983605, y: 0.013949713, z: 0.20718656}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1497744141745960007}

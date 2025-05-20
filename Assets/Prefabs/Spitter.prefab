@@ -160,6 +160,14 @@ MonoBehaviour:
   player: {fileID: 0}
   moveSpeed: 3
   stopDistance: 6
+  groundLayer:
+    serializedVersion: 2
+    m_Bits: 0
+  groundCheckDistance: 0.3
+  edgeCheckDistance: 0.5
+  avoidFalling: 1
+  fallThreshold: -20
+  destroyOnFall: 0
 --- !u!114 &582274364059477200
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -205,6 +213,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 3
   hitClip: {fileID: 8300000, guid: 539ccf27db8f5694e91a8953ad03f86b, type: 3}
+  coinPrefab: {fileID: 7831358277770686865, guid: 9a7841ac63d30da49ade51eb2f58478e, type: 3}
+  coinAmount: 1
 --- !u!82 &8943449692864078676
 AudioSource:
   m_ObjectHideFlags: 0

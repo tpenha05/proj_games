@@ -22,7 +22,7 @@ public class PlayerMovement : MonoBehaviour
     Rigidbody2D rb;
     Animator anim;
 
-    bool isGrounded;
+    public bool isGrounded;
     bool wasGrounded;
     bool isFacingRight = true;
     bool isHanging = false;
@@ -63,6 +63,9 @@ public class PlayerMovement : MonoBehaviour
 
     void Update()
     {
+        if (CompareTag("texto"))
+            return;
+
         if (isHanging)
         {
             if (InputManager.JumpWasPressed)
