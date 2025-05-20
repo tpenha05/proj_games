@@ -11,7 +11,12 @@ public class DungeonEntranceController : MonoBehaviour
     [Header("Configuração")]
     public string nomeDaCenaDestino;
 
+    [Header("Requisitos")]
+    [Tooltip("Quantidade mínima de runas necessárias para entrar")]
+    public int runasNecessarias = 10;
+
     private bool playerNearby = false;
+    private PlayerHealth playerHealth; // referência ao seu script PlayerHealth
 
     void Awake()
     {
@@ -21,9 +26,18 @@ public class DungeonEntranceController : MonoBehaviour
 
     void Update()
     {
-        if (playerNearby && Input.GetKeyDown(KeyCode.M))
+        if (!playerNearby) return;
+
+        if (Input.GetKeyDown(KeyCode.M))
         {
-            SceneManager.LoadScene(nomeDaCenaDestino);
+            if (playerHealth != null && playerHealth.coinCount >= runasNecessarias)
+            {
+                SceneManager.LoadScene(nomeDaCenaDestino);
+            }
+            else
+            {
+                AtualizaMensagem();
+            }
         }
     }
 
@@ -31,9 +45,11 @@ public class DungeonEntranceController : MonoBehaviour
     {
         if (!other.CompareTag("Player")) return;
 
+        // pega o componente onde está o coinCount
+        playerHealth = other.GetComponent<PlayerHealth>();
         playerNearby = true;
         uiCanvas.SetActive(true);
-        uiText.text = "Entrar na Cave [M]";
+        AtualizaMensagem();
     }
 
     void OnTriggerExit2D(Collider2D other)
@@ -42,5 +58,15 @@ public class DungeonEntranceController : MonoBehaviour
 
         playerNearby = false;
         uiCanvas.SetActive(false);
+    }
+
+    private void AtualizaMensagem()
+    {
+        int runasAtuais = playerHealth != null ? playerHealth.coinCount : 0;
+
+        if (runasAtuais >= runasNecessarias)
+            uiText.text = "Entrar na Cave [M]";
+        else
+            uiText.text = $"Você tem {runasAtuais} runas (precisa de {runasNecessarias})";
     }
 }
