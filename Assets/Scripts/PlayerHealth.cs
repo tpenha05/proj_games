@@ -45,10 +45,7 @@ public class PlayerHealth : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.H))
-        {
-            Revive();
-        }
+        UpdateCoinText();
         
         if (isInvulnerable)
         {
