@@ -11,6 +11,10 @@ public class DungeonEntranceController : MonoBehaviour
     [Header("Configuração")]
     public string nomeDaCenaDestino;
 
+    [Header("Requisitos")]
+    [Tooltip("Quantidade mínima de runas necessárias para entrar")]
+    public int runasNecessarias = 10;
+
     private bool playerNearby = false;
 
     void Awake()
@@ -23,7 +27,15 @@ public class DungeonEntranceController : MonoBehaviour
     {
         if (playerNearby && Input.GetKeyDown(KeyCode.M))
         {
-            SceneManager.LoadScene(nomeDaCenaDestino);
+            int runasAtuais = PlayerScore.GetRunas();
+            if (runasAtuais >= runasNecessarias)
+            {
+                SceneManager.LoadScene(nomeDaCenaDestino);
+            }
+            else
+            {
+                uiText.text = $"Você tem {runasAtuais} runas (precisa de {runasNecessarias})";
+            }
         }
     }
 
@@ -33,7 +45,12 @@ public class DungeonEntranceController : MonoBehaviour
 
         playerNearby = true;
         uiCanvas.SetActive(true);
-        uiText.text = "Entrar na Cave [M]";
+
+        int runasAtuais = PlayerScore.GetRunas();
+        if (runasAtuais >= runasNecessarias)
+            uiText.text = "Entrar na Cave [M]";
+        else
+            uiText.text = $"Você tem {runasAtuais} runas (precisa de {runasNecessarias})";
     }
 
     void OnTriggerExit2D(Collider2D other)
