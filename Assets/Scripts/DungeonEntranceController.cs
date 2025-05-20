@@ -27,7 +27,7 @@ public class DungeonEntranceController : MonoBehaviour
     {
         if (playerNearby && Input.GetKeyDown(KeyCode.M))
         {
-            int runasAtuais = PlayerScore.GetRunas();
+            int runasAtuais = PlayerHealth.GetCoins(); // Supondo que você tenha uma variável estática para runas no PlayerHealth
             if (runasAtuais >= runasNecessarias)
             {
                 SceneManager.LoadScene(nomeDaCenaDestino);
@@ -46,7 +46,7 @@ public class DungeonEntranceController : MonoBehaviour
         playerNearby = true;
         uiCanvas.SetActive(true);
 
-        int runasAtuais = PlayerScore.GetRunas();
+        int runasAtuais = PlayerHealth.GetCoins(); // Supondo que você tenha um método para obter runas no PlayerHealth
         if (runasAtuais >= runasNecessarias)
             uiText.text = "Entrar na Cave [M]";
         else
