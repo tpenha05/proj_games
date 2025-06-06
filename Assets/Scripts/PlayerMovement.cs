@@ -19,8 +19,10 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float minPitch = 0.9f;
     [SerializeField] private float maxPitch = 1.1f;
     [SerializeField] private float landingSoundThreshold = -5f;
+    
     Rigidbody2D rb;
     Animator anim;
+    PlayerHealth playerHealth;
 
     public bool isGrounded;
     bool wasGrounded;
@@ -43,6 +45,7 @@ public class PlayerMovement : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
+        playerHealth = GetComponent<PlayerHealth>();
 
         rb.freezeRotation = true;
         rb.interpolation = RigidbodyInterpolation2D.Interpolate;
@@ -64,6 +67,9 @@ public class PlayerMovement : MonoBehaviour
     void Update()
     {
         if (CompareTag("texto"))
+            return;
+            
+        if (playerHealth != null && playerHealth.IsDead())
             return;
 
         if (isHanging)
@@ -99,6 +105,9 @@ public class PlayerMovement : MonoBehaviour
 
     void FixedUpdate()
     {
+        if (playerHealth != null && playerHealth.IsDead())
+            return;
+            
         if (!isRolling && !isDashing && !isHanging)
             ApplyHorizontalMovement();
     }
