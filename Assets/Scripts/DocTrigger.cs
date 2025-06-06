@@ -3,21 +3,23 @@ using UnityEngine;
 public class DocTrigger : MonoBehaviour
 {
     private bool playerInRange = false;
+    public GameObject interactCanvas;
 
-    void Update()
+    void Start()
     {
-        if (playerInRange && Input.GetKeyDown(KeyCode.E))
-        {
-            DocUI.Instance.ShowDocument(); 
-        }
+        interactCanvas.SetActive(false);
+        DocUI.Instance.ShowPrompt(false);
     }
+
 
     void OnTriggerEnter2D(Collider2D other)
     {
         if (other.CompareTag("Player"))
         {
+            
             playerInRange = true;
             DocUI.Instance.ShowPrompt(true);
+            interactCanvas.SetActive(true);
         }
     }
 
@@ -27,6 +29,7 @@ public class DocTrigger : MonoBehaviour
         {
             playerInRange = false;
             DocUI.Instance.ShowPrompt(false);
+            interactCanvas.SetActive(false);
         }
     }
 }

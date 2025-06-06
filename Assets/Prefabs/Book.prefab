@@ -631,6 +631,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   promptPanel: {fileID: 5228818091491965774}
+  interactCanvas: {fileID: 0}
   docPanel: {fileID: 3846003464694148967}
   contentText: {fileID: 6059605771594176571}
   contentText_2: {fileID: 0}
@@ -1030,6 +1031,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 23f70f1bb4f3f9f4cb86c045e167456a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  interactCanvas: {fileID: 0}
 --- !u!1 &7909455321177017496
 GameObject:
   m_ObjectHideFlags: 0
