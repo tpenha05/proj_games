@@ -56,6 +56,45 @@ public class PlayerHealth : MonoBehaviour
         return isDead;
     }
 
+    public void increaseMaxHealth(int amount=1)
+    {
+        GameObject[] newHearts = new GameObject[hearts.Length + amount];
+
+        // Copia os corações existentes
+        for (int i = 0; i < hearts.Length; i++)
+        {
+            newHearts[i] = hearts[i];
+        }
+
+        // Instancia novos corações e posiciona ao lado dos existentes
+        for (int i = hearts.Length; i < newHearts.Length; i++)
+        {
+            GameObject lastHeart = newHearts[i - 1];
+            Vector3 newPosition = lastHeart.transform.position + new Vector3(1f, 0, 0); // ajuste a distância se necessário
+
+            GameObject newHeart = Instantiate(lastHeart, newPosition, Quaternion.identity, lastHeart.transform.parent);
+            newHeart.SetActive(true);
+            newHearts[i] = newHeart;
+        }
+
+        hearts = newHearts;
+        currentHealth += amount;
+
+        if (currentHealth > hearts.Length)
+            currentHealth = hearts.Length;
+    }
+
+
+    public int getMaxHealth()
+    {
+        return hearts.Length;
+    }
+
+    public int GetCurrentHealth()
+    {
+        return currentHealth;
+    }
+
     void Update()
     {
         coinCountStatic = coinCount;
