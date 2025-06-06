@@ -20,12 +20,12 @@ public class PlayerCombat : MonoBehaviour
     private Animator animator;
     private Rigidbody2D rb;
     private PlayerMovement playerMovement;
+    private PlayerHealth playerHealth;
 
     private bool nextSlashIsOne = true;
     private float nextLightAttackTime = 0f;
     private float nextPowerTime = 0f;
     
-    // Variáveis para controlar ataques aéreos
     private bool attackTriggeredInAir = false;
     private string currentAirAttack = "";
     private bool wasGrounded = false;
@@ -37,10 +37,16 @@ public class PlayerCombat : MonoBehaviour
         animator = GetComponent<Animator>();
         rb = GetComponent<Rigidbody2D>();
         playerMovement = GetComponent<PlayerMovement>();
+        playerHealth = GetComponent<PlayerHealth>();
         
         if (playerMovement == null)
         {
             Debug.LogError("PlayerCombat: Não foi possível encontrar o componente PlayerMovement!");
+        }
+        
+        if (playerHealth == null)
+        {
+            Debug.LogError("PlayerCombat: Não foi possível encontrar o componente PlayerHealth!");
         }
 
         if (audioSource == null)
@@ -60,13 +66,14 @@ public class PlayerCombat : MonoBehaviour
     
     void Update()
     {
+        if (playerHealth != null && playerHealth.IsDead())
+            return;
+            
         HandleLightAttack();
         HandleHeavyAttack();
         
-        // Detectar quando o jogador pousa após um ataque aéreo
         CheckAirAttackOnLanding();
         
-        // Guardar estado do grounded para o próximo frame
         wasGrounded = playerMovement != null ? playerMovement.isGrounded : false;
     }
 
@@ -81,7 +88,6 @@ public class PlayerCombat : MonoBehaviour
             nextSlashIsOne = false;
             PlaySlashSound();
             
-            // Se estamos no ar, registramos o ataque para quando pousar
             if (playerMovement != null && !playerMovement.isGrounded)
             {
                 attackTriggeredInAir = true;
@@ -95,7 +101,6 @@ public class PlayerCombat : MonoBehaviour
             nextLightAttackTime = Time.time + lightAttackCooldown;
             PlaySlashSound();
             
-            // Se estamos no ar, registramos o ataque para quando pousar
             if (playerMovement != null && !playerMovement.isGrounded)
             {
                 attackTriggeredInAir = true;
@@ -112,7 +117,6 @@ public class PlayerCombat : MonoBehaviour
             nextPowerTime = Time.time + powerCooldown;
             PlayPowerSound();
             
-            // Se estamos no ar, registramos o ataque para quando pousar
             if (playerMovement != null && !playerMovement.isGrounded)
             {
                 attackTriggeredInAir = true;
@@ -123,24 +127,19 @@ public class PlayerCombat : MonoBehaviour
     
     private void CheckAirAttackOnLanding()
     {
-        // Se não há ataque registrado no ar, pule a verificação
         if (!attackTriggeredInAir)
             return;
             
-        // Verificamos se acabamos de pousar (transição de !grounded para grounded)
         if (playerMovement != null && playerMovement.isGrounded && !wasGrounded)
         {
-            // Ativamos a hitbox com um pequeno atraso para parecer mais natural
             StartCoroutine(ActivateAirAttackHitbox());
         }
     }
     
     private IEnumerator ActivateAirAttackHitbox()
     {
-        // Pequeno atraso antes de ativar a hitbox após pouso
         yield return new WaitForSeconds(airAttackActivationDelay);
         
-        // Ativamos a hitbox apropriada baseada no tipo de ataque
         if (currentAirAttack == "light1" || currentAirAttack == "light2")
         {
             attackHitbox.EnableLightHitbox();
@@ -150,25 +149,20 @@ public class PlayerCombat : MonoBehaviour
             attackHitbox.EnablePowerHitbox();
         }
         
-        // Desativamos a hitbox após a duração do ataque
         yield return new WaitForSeconds(airAttackDuration);
         attackHitbox.DisableHitbox();
         
-        // Resetamos as flags de ataque aéreo
         attackTriggeredInAir = false;
         currentAirAttack = "";
     }
     
-    // Métodos chamados pela animação (eventos de animação)
     public void EnableLightHitbox() 
     {
-        // A verificação de grounded está sendo feita dentro do AttackHitbox
         attackHitbox.EnableLightHitbox();
     }
     
     public void EnablePowerHitbox() 
     {
-        // A verificação de grounded está sendo feita dentro do AttackHitbox
         attackHitbox.EnablePowerHitbox();
     }
     

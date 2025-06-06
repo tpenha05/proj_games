@@ -11,11 +11,12 @@ public class PlayerHealth : MonoBehaviour
     public int coinCount = 0;
     public static int coinCountStatic = 0;
 
-    public TextMeshProUGUI coinText; // arraste aqui o Text do Canvas
+    public TextMeshProUGUI coinText;
 
     private int currentHealth;
     private Animator anim;
     private PlayerMovement playerMovement;
+    private PlayerCombat playerCombat;
     private Vector3 initialPosition;
     
     private bool isInvulnerable = false;
@@ -32,9 +33,9 @@ public class PlayerHealth : MonoBehaviour
         currentHealth = hearts.Length;
         anim = GetComponent<Animator>();
         playerMovement = GetComponent<PlayerMovement>();
+        playerCombat = GetComponent<PlayerCombat>();
         initialPosition = transform.position;
         
-        // Encontra o GameOverUIController se não foi atribuído
         if (gameOverUIController == null)
             gameOverUIController = FindObjectOfType<GameOverUIController>();
     }
@@ -48,6 +49,50 @@ public class PlayerHealth : MonoBehaviour
     public static int GetCoins()
     {
         return coinCountStatic;
+    }
+
+    public bool IsDead()
+    {
+        return isDead;
+    }
+
+    public void increaseMaxHealth(int amount=1)
+    {
+        GameObject[] newHearts = new GameObject[hearts.Length + amount];
+
+        // Copia os corações existentes
+        for (int i = 0; i < hearts.Length; i++)
+        {
+            newHearts[i] = hearts[i];
+        }
+
+        // Instancia novos corações e posiciona ao lado dos existentes
+        for (int i = hearts.Length; i < newHearts.Length; i++)
+        {
+            GameObject lastHeart = newHearts[i - 1];
+            Vector3 newPosition = lastHeart.transform.position + new Vector3(1f, 0, 0); // ajuste a distância se necessário
+
+            GameObject newHeart = Instantiate(lastHeart, newPosition, Quaternion.identity, lastHeart.transform.parent);
+            newHeart.SetActive(true);
+            newHearts[i] = newHeart;
+        }
+
+        hearts = newHearts;
+        currentHealth += amount;
+
+        if (currentHealth > hearts.Length)
+            currentHealth = hearts.Length;
+    }
+
+
+    public int getMaxHealth()
+    {
+        return hearts.Length;
+    }
+
+    public int GetCurrentHealth()
+    {
+        return currentHealth;
     }
 
     void Update()
@@ -115,29 +160,23 @@ public class PlayerHealth : MonoBehaviour
         
         if (playerMovement != null)
             playerMovement.enabled = false;
+            
+        if (playerCombat != null)
+            playerCombat.enabled = false;
 
-        // Mostra a tela de Game Over após um pequeno delay para a animação de morte
         StartCoroutine(ShowGameOverScreen());
     }
     
     private IEnumerator ShowGameOverScreen()
     {
-        yield return new WaitForSeconds(1.5f); // Tempo para a animação de morte tocar
+        yield return new WaitForSeconds(1.5f);
         
-        // Mostra a tela de Game Over com a quantidade de runas do jogador
         if (gameOverUIController != null)
         {
-            int currentRunes = PlayerScore.GetRunas(); // Supondo que esta função exista
+            int currentRunes = PlayerScore.GetRunas();
             gameOverUIController.ShowGameOver();
         }
     }
-
-    // Método removido pois não reiniciamos mais a cena
-    // private IEnumerator RestartScene()
-    // {
-    //     yield return new WaitForSeconds(1.5f);
-    //     SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
-    // }
     
     private bool IsPlayerRolling()
     {
@@ -153,7 +192,6 @@ public class PlayerHealth : MonoBehaviour
 
         return false;
     }
-
 
     public void AddCoins(int amount)
     {
@@ -198,6 +236,9 @@ public class PlayerHealth : MonoBehaviour
 
         if (playerMovement != null)
             playerMovement.enabled = true;
+            
+        if (playerCombat != null)
+            playerCombat.enabled = true;
 
         isInvulnerable = false;
     }
@@ -217,5 +258,8 @@ public class PlayerHealth : MonoBehaviour
 
         if (playerMovement != null)
             playerMovement.enabled = true;
+            
+        if (playerCombat != null)
+            playerCombat.enabled = true;
     }
 }
