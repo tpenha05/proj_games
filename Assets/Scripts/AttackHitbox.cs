@@ -57,5 +57,10 @@ public class AttackHitbox : MonoBehaviour
         var eh = other.GetComponent<EnemyHealth>();
         if (eh != null)
             eh.TakeDamage(currentDamage);
+
+        // Pega diretamente o seu boss
+        var boss = other.GetComponent<TarnishedWidowBoss>();
+        if (boss != null)
+            boss.TakeDamage(currentDamage);
     }
 }

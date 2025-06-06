@@ -16,6 +16,7 @@ public class DungeonEntranceController : MonoBehaviour
     public int runasNecessarias = 10;
 
     private bool playerNearby = false;
+    private PlayerHealth playerHealth; // referência ao seu script PlayerHealth
 
     void Awake()
     {
@@ -25,7 +26,9 @@ public class DungeonEntranceController : MonoBehaviour
 
     void Update()
     {
-        if (playerNearby && Input.GetKeyDown(KeyCode.M))
+        if (!playerNearby) return;
+
+        if (Input.GetKeyDown(KeyCode.M))
         {
             int runasAtuais = PlayerHealth.GetCoins(); // Supondo que você tenha uma variável estática para runas no PlayerHealth
             if (runasAtuais >= runasNecessarias)
@@ -34,7 +37,7 @@ public class DungeonEntranceController : MonoBehaviour
             }
             else
             {
-                uiText.text = $"Você tem {runasAtuais} runas (precisa de {runasNecessarias})";
+                AtualizaMensagem();
             }
         }
     }
@@ -43,6 +46,8 @@ public class DungeonEntranceController : MonoBehaviour
     {
         if (!other.CompareTag("Player")) return;
 
+        // pega o componente onde está o coinCount
+        playerHealth = other.GetComponent<PlayerHealth>();
         playerNearby = true;
         uiCanvas.SetActive(true);
 
@@ -59,5 +64,15 @@ public class DungeonEntranceController : MonoBehaviour
 
         playerNearby = false;
         uiCanvas.SetActive(false);
+    }
+
+    private void AtualizaMensagem()
+    {
+        int runasAtuais = playerHealth != null ? playerHealth.coinCount : 0;
+
+        if (runasAtuais >= runasNecessarias)
+            uiText.text = "Entrar na Cave [M]";
+        else
+            uiText.text = $"Você tem {runasAtuais} runas (precisa de {runasNecessarias})";
     }
 }
