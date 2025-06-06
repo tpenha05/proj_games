@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 public class GameOverUIController : MonoBehaviour
 {
     public GameObject gameOverPanel;
+    public GameObject adPanel;
     
     // Botões adicionais (se quiser)
     public Button respawnButton;
@@ -39,6 +40,32 @@ public class GameOverUIController : MonoBehaviour
 
         // Oculta a UI
         gameOverPanel.SetActive(false);
+
+        // Chama o revive do jogador
+        FindObjectOfType<PlayerHealth>()?.Revive();
+    }
+    public void WatchAd()
+    {
+        // Retoma o jogo se estiver pausado
+        Time.timeScale = 1f;
+
+
+        // Oculta a UI
+        gameOverPanel.SetActive(false);
+        adPanel.SetActive(true);
+
+        
+        
+    }
+    
+    public void Respawn_After_AD()
+    {
+        // Retoma o jogo se estiver pausado
+        Time.timeScale = 1f;
+
+
+        // Oculta a UI
+        adPanel.SetActive(false);
 
         // Chama o revive do jogador
         FindObjectOfType<PlayerHealth>()?.Revive();
