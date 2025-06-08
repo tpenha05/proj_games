@@ -133,7 +133,12 @@ public class PlayerMovement : MonoBehaviour
     {
         if (!isHanging)
         {
-            moveInput = InputManager.Movement;
+            float dir = 0f;
+            if (InputManager.RunRightHeld) dir += 1f;
+            if (InputManager.RunLeftHeld)  dir -= 1f;
+
+            moveInput = new Vector2(dir, 0f);
+
         }
         else
         {
@@ -236,7 +241,8 @@ public class PlayerMovement : MonoBehaviour
 
     void ApplyHorizontalMovement()
     {
-        float maxSpeed = InputManager.RunIsHeld ? MoveStats.RunSpeed : MoveStats.WalkSpeed;
+        float maxSpeed = MoveStats.RunSpeed; // sempre corre
+
         float targetSpeed = moveInput.x * maxSpeed;
         float accel = Mathf.Abs(targetSpeed) > 0.1f ? MoveStats.Acceleration : MoveStats.Deceleration;
 
