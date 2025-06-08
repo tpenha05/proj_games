@@ -8,6 +8,7 @@ public class DocUI : MonoBehaviour
 
     [Header("UI Elements")]
     public GameObject promptPanel;
+    public GameObject interactCanvas;
     public GameObject docPanel;
     public TextMeshProUGUI contentText;
     public TextMeshProUGUI contentText_2;
@@ -24,7 +25,7 @@ public class DocUI : MonoBehaviour
     void Awake()
     {
         if (Instance == null) Instance = this;
-        else Destroy(gameObject);
+
     }
 
     void Start()
@@ -37,7 +38,7 @@ public class DocUI : MonoBehaviour
         contentText_2.ForceMeshUpdate();
         docPanel.SetActive(false);
 
-        closeButton.onClick.AddListener(() => HideDocument());
+
     }
 
     void Update()
@@ -46,6 +47,7 @@ public class DocUI : MonoBehaviour
         {
             HideDocument();
         }
+        
     }
 
     public void ShowPrompt(bool show)
@@ -58,12 +60,14 @@ public class DocUI : MonoBehaviour
 
     public void ShowDocument()
     {
+        interactCanvas.SetActive(false);
         docPanel.SetActive(true);
 
     }
 
-    void HideDocument()
+    public void HideDocument()
     {
         docPanel.SetActive(false);
+        interactCanvas.SetActive(true);
     }
 }

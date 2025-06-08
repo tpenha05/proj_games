@@ -12,8 +12,9 @@ public class CheckpointController : MonoBehaviour
 
     [Header("Referências")]
     public bool isSpawn = false;
-    public Transform arrow; // seta no spawn
+    public Transform arrow;
     public GameObject uiCanvas;
+    public GameObject interactCanvas;
 
     private TextMeshProUGUI uiText;
     private SpriteRenderer sr;
@@ -30,6 +31,7 @@ public class CheckpointController : MonoBehaviour
         sr = GetComponent<SpriteRenderer>();
         uiText = uiCanvas.GetComponentInChildren<TextMeshProUGUI>();
         uiCanvas.SetActive(false);
+        interactCanvas.SetActive(false);
 
         if (isSpawn && arrow != null)
             arrow.gameObject.SetActive(false);
@@ -51,25 +53,26 @@ public class CheckpointController : MonoBehaviour
     {
         if (!playerNearby) return;
 
-        // Ação com tecla [M]
-        if (Input.GetKeyDown(KeyCode.M))
-        {
-            if (isSpawn)
-            {
-                if (CheckpointManager.I.activeCheckpoint != null)
-                    player.position = CheckpointManager.I.activeCheckpoint.transform.position;
-            }
-            else
-            {
-                if (CheckpointManager.I.activeCheckpoint == this)
-                    player.position = CheckpointManager.I.spawnCheckpoint.transform.position;
-                else
-                    CheckpointManager.I.SetActive(this);
-            }
-        }
-
         UpdateUIText();
         UpdateArrowDirection();
+    }
+
+    public void OnInteractButtonPressed()
+    {
+        Debug.Log("Botão clicado!");
+        
+        if (isSpawn)
+        {
+            if (CheckpointManager.I.activeCheckpoint != null)
+                player.position = CheckpointManager.I.activeCheckpoint.transform.position;
+        }
+        else
+        {
+            if (CheckpointManager.I.activeCheckpoint == this)
+                player.position = CheckpointManager.I.spawnCheckpoint.transform.position;
+            else
+                CheckpointManager.I.SetActive(this);
+        }
     }
 
     private void UpdateUIText()
@@ -81,14 +84,14 @@ public class CheckpointController : MonoBehaviour
         if (isSpawn)
         {
             desiredText = (CheckpointManager.I.activeCheckpoint != null)
-                ? "Teleportar [M]"
+                ? "Teleportar"
                 : "Necessita de um totem ativado";
         }
         else
         {
             desiredText = (CheckpointManager.I.activeCheckpoint == this)
-                ? "Teleportar [M]"
-                : "Ativar [M]";
+                ? "Teleportar"
+                : "Ativar";
         }
 
         if (desiredText != lastUIText)
@@ -124,6 +127,7 @@ public class CheckpointController : MonoBehaviour
         playerNearby = true;
         player = other.transform;
         uiCanvas.SetActive(true);
+        interactCanvas.SetActive(true);
     }
 
     void OnTriggerExit2D(Collider2D other)
@@ -132,6 +136,7 @@ public class CheckpointController : MonoBehaviour
 
         playerNearby = false;
         uiCanvas.SetActive(false);
+        interactCanvas.SetActive(false);
     }
 
     public void ForceOn()

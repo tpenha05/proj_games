@@ -505,13 +505,15 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "O sol mal tocava as copas quando deixei a vila. O orvalho brilhava nas
-    folhas e o vento soprava calmo, como se a floresta dissesse: \u201Csiga\u201D.\nAs
-    trilhas antigas ainda estavam ali, escondidas sob musgo e ra\xEDzes. Caminhar
-    por elas \xE9 como seguir mem\xF3rias \u2014 mem\xF3rias do meu pai, e agora,
-    por Elira.\n\nEla sorriu antes que eu partisse. \u201CTraga a flor pra mim, papai.\u201D\nPrometi
-    que traria. A flor de \xE2mbar negro s\xF3 nasce a cada ciclo do cometa. Um brilho
-    raro, escondido no escuro da Caverna de Espinhos Negros."
+  m_text: "Essa floresta est\xE1 viva... e quer me morto.\n\nHoje fui cercado por
+    tr\xEAs daqueles malditos invocadores. Quando percebi, eles j\xE1 estavam com
+    as m\xE3os erguidas, murmurando aquele sussurro podre. Em segundos, o ch\xE3o
+    abriu \u2014 e ghouls come\xE7aram a sair das ra\xEDzes como se estivessem enterrados
+    ali h\xE1 s\xE9culos. Magros, quebrados, r\xE1pidos demais.\n\nFui for\xE7ado
+    a recuar, pulando de tronco em tronco, at\xE9 achar uma eleva\xE7\xE3o segura.
+    Mas os spitters estavam \xE0 espreita. Um deles cuspiu \xE1cido perto do meu
+    p\xE9 \u2014 o tronco corroeu em segundos. Se eu estivesse um passo mais lento,
+    n\xE3o estaria escrevendo isso agora."
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 3c7508e224972f04382e25b291096b67, type: 2}
   m_sharedMaterial: {fileID: 1018333922208078901, guid: 3c7508e224972f04382e25b291096b67, type: 2}
@@ -544,7 +546,7 @@ MonoBehaviour:
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
-  m_fontStyle: 0
+  m_fontStyle: 1
   m_HorizontalAlignment: 1
   m_VerticalAlignment: 256
   m_textAlignment: 65535
@@ -631,13 +633,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   promptPanel: {fileID: 5228818091491965774}
+  interactCanvas: {fileID: 0}
   docPanel: {fileID: 3846003464694148967}
   contentText: {fileID: 6059605771594176571}
-  contentText_2: {fileID: 0}
+  contentText_2: {fileID: 6046166420418383730}
   docImage: {fileID: 8353182540314109971}
   closeHintText: {fileID: 6598486253104379406}
   closeButton: {fileID: 8461729537737899618}
-  documentText: 123
+  documentText: 1
   documentSprite: {fileID: 4608832191852099306, guid: 7e8aad972dfbbb647bb31af3a0154a8c, type: 3}
 --- !u!1 &5228818091491965774
 GameObject:
@@ -656,7 +659,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &6518647504809175453
 RectTransform:
   m_ObjectHideFlags: 0
@@ -780,11 +783,14 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec at tortor
-    vitae nisl consequat dapibus. Curabitur vel ultricies sem. Sed pretium urna nec
-    neque mattis, tempus volutpat justo imperdiet. Fusce porta eros lorem. \n\nLorem
-    ipsum dolor sit amet, consectetur adipiscing elit. Donec at tortor vitae nisl
-    consequat dapibus. Curabitur vel ultricies sem. Sed pretium urna nec neque mattis,"
+  m_text: "E como se n\xE3o bastasse, quase fui empalado por espinhos escondidos
+    sob folhas secas.\nS\xE3o finos, invis\xEDveis \xE0 primeira vista, mas surgem
+    do nada se voc\xEA pisa no ponto errado. Rasgaram parte da minha bota. Da pr\xF3xima
+    vez, talvez rasguem meu tornozelo.\n\nEstou cansado, sem tempo pra pensar. Mas
+    ainda estou inteiro.\nSe todos esses obst\xE1culos est\xE3o aqui... \xE9 porque
+    estou chegando perto.\nA caverna\u2026 est\xE1 pr\xF3xima.\n\nPosso sentir o
+    peso no ar. O sil\xEAncio entre as \xE1rvores.\nComo se at\xE9 o mundo estivesse
+    prendendo a respira\xE7\xE3o."
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 3c7508e224972f04382e25b291096b67, type: 2}
   m_sharedMaterial: {fileID: 1018333922208078901, guid: 3c7508e224972f04382e25b291096b67, type: 2}
@@ -884,7 +890,7 @@ Transform:
   m_GameObject: {fileID: 5694596347679510112}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 8.094, y: -1.344, z: 7.240264}
+  m_LocalPosition: {x: 24.31, y: 2.58, z: 7.240264}
   m_LocalScale: {x: 0.08, y: -0.08, z: -0.16}
   m_ConstrainProportionsScale: 1
   m_Children: []
@@ -1030,6 +1036,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 23f70f1bb4f3f9f4cb86c045e167456a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  interactCanvas: {fileID: 0}
 --- !u!1 &7909455321177017496
 GameObject:
   m_ObjectHideFlags: 0
