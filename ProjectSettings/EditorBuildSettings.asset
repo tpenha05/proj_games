@@ -14,9 +14,12 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Scenes/Oficial/MainMenu.unity
     guid: 66a4a40937a8eec4c9f712b5d070c998
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Oficial/Floresta Baixa.unity
     guid: 89d1301ce54009b44ac126d77858183b
+  - enabled: 1
+    path: Assets/Scenes/Oficial/FLOREST OFICIAL.unity
+    guid: 354927e3cf15de747a0eb358ce0a9a71
   - enabled: 1
     path: Assets/Scenes/Oficial/BossFIght.unity
     guid: 9ba5b3c920d3a2b43b14895afec346fc
