@@ -54,8 +54,5 @@ public class InputManager : MonoBehaviour
         RunRightHeld     = _runRightAction.IsPressed();
         RunLeftHeld      = _runLeftAction.IsPressed();
 
-        if (RunRightHeld)
-            Debug.Log("Botão de andar para a direita segurado!");
-
     }
 }
